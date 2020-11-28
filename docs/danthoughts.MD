@@ -31,3 +31,13 @@ associated replies
 jquery or EJS?
 seems to be a requirement to use jquery in our stack
 SEE diagram
+LOGIC -
+ - poll options pulled from database
+ - represented as in-memory objects
+ - has text, and also position as key
+ - onclick/drag changes objects position values
+ - poll data submitted to BD could be as simple as an array of 2-5 integers, where each integer represents the poll option and the order represents their ranking.
+
+## STRETCH!
+- mail out to respondents.
+- cookies for persistent sessions
