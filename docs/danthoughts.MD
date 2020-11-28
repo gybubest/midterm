@@ -1,12 +1,11 @@
 ## NODE + EXPRESS - runs RESTFUL routes.
 
-GET / - home page (poll creation)
+GET / - home page
+GET /new - poll creation
 POST / - create a poll
 GET /:id - go to poll with this ID
-POST /:id+params - submit poll response
-DELETE /:id - remove a poll
-PUT /:id - update a poll (optional)
-GET /results/:id - show poll results
+POST /:id - submit poll response
+GET /my/:id - show poll results
 
 ## DATABASE - stores info
 
