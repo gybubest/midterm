@@ -5,5 +5,6 @@ CREATE TABLE polls (
   email VARCHAR(255) NOT NULL,
   admin_link TEXT,
   user_link TEXT,
+  anonymous BOOLEAN DEFAULT FALSE,
   timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
