@@ -2,76 +2,76 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Poll</title>
+    <title>Create New Poll</title>
   </head>
   <body>
-    <form class="create-poll" method="POST" action="/new">
+    <form class="create-poll" method="POST" action="/">
       <div class="form-group row">
         <label for="inputNewQuestion" class="col-sm-2 col-form-label">Question</label>
         <div class="">
-          <input type="text" class="form-control form-control-lg" id="new-inputNewQuestion">
+          <input type="text" class="form-control form-control-lg" name="inputNewQuestion">
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputOption1" class="col-sm-2 col-form-label">Option 1</label>
+        <label for="inputOpt1" class="col-sm-2 col-form-label">Option 1</label>
         <div class="">
-          <input type="text" class="form-control" id="inputOption1">
+          <input type="text" class="form-control" name="inputOpt1">
         </div>
-        <label for="inputOption1Description" class="col-sm-2 col-form-label">Description</label>
+        <label for="inputOpt1Descript" class="col-sm-2 col-form-label">Description</label>
         <div class="">
-          <input type="text" class="form-control form-control-sm" id="inputOption1Description" placeholder="optional">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputOption2" class="col-sm-2 col-form-label">Option 2</label>
-        <div class="">
-          <input type="text" class="form-control" id="inputOption2">
-        </div>
-        <label for="inputOption2Description" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" id="inputOption2Description" placeholder="optional">
+          <input type="text" class="form-control form-control-sm" name="inputOpt1Descript" placeholder="optional">
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputOption3" class="col-sm-2 col-form-label">Option 3</label>
+        <label for="inputOpt2" class="col-sm-2 col-form-label">Option 2</label>
         <div class="">
-          <input type="text" class="form-control" id="inputOption3" placeholder="optional">
+          <input type="text" class="form-control" name="inputOpt2">
         </div>
-        <label for="inputOption3Description" class="col-sm-2 col-form-label">Description</label>
+        <label for="inputOpt2Descript" class="col-sm-2 col-form-label">Description</label>
         <div class="">
-          <input type="text" class="form-control form-control-sm" id="inputOption3Description" placeholder="optional">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputOption4" class="col-sm-2 col-form-label">Option 4</label>
-        <div class="">
-          <input type="text" class="form-control" id="inputOption4" placeholder="optional">
-        </div>
-        <label for="inputOption4Description" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" id="inputOption4Description" placeholder="optional">
+          <input type="text" class="form-control form-control-sm" name="inputOpt2Descript" placeholder="optional">
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputOption5" class="col-sm-2 col-form-label">Option 5</label>
+        <label for="inputOpt3" class="col-sm-2 col-form-label">Option 3</label>
         <div class="">
-          <input type="text" class="form-control" id="inputOption5" placeholder="optional">
+          <input type="text" class="form-control" name="inputOpt3" placeholder="optional">
         </div>
-        <label for="inputOptio52Description" class="col-sm-2 col-form-label">Description</label>
+        <label for="inputOpt3Descript" class="col-sm-2 col-form-label">Description</label>
         <div class="">
-          <input type="text" class="form-control form-control-sm" id="inputOption5Description" placeholder="optional">
+          <input type="text" class="form-control form-control-sm" name="inputOpt3Descript" placeholder="optional">
         </div>
       </div>
       <div class="form-group row">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label for="inputOpt4" class="col-sm-2 col-form-label">Option 4</label>
+        <div class="">
+          <input type="text" class="form-control" name="inputOpt4" placeholder="optional">
+        </div>
+        <label for="inputOpt4Descript" class="col-sm-2 col-form-label">Description</label>
+        <div class="">
+          <input type="text" class="form-control form-control-sm" name="inputOpt4Descript" placeholder="optional">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputOpt5" class="col-sm-2 col-form-label">Option 5</label>
+        <div class="">
+          <input type="text" class="form-control" name="inputOpt5" placeholder="optional">
+        </div>
+        <label for="inputOptio52Descript" class="col-sm-2 col-form-label">Description</label>
+        <div class="">
+          <input type="text" class="form-control form-control-sm" name="inputOpt5Descript" placeholder="optional">
+        </div>
+      </div>
+      <div class="form-group row">
+        <input class="form-check-input" type="checkbox" value="" name="defaultCheck1">
         <label class="form-check-label" for="defaultCheck1">
-          Anonymous Poll
+          Anonymous poll?
         </label>
       </div>
       <div class="form-group row">
-        <label for="inputEmail" class="col-sm-2 col-form-label">Your Email</label>
+        <label for="inputEmail" class="col-sm-2 col-form-label">Enter your email</label>
         <div class="">
-          <input type="text" class="form-control form-control-lg" id="new-inputEmail">
+          <input type="email" class="form-control form-control-lg" name="inputEmail">
         </div>
       </div>
       <div class="form-group row">

@@ -42,7 +42,7 @@ const pollResponse = require("./routes/response");
 const pollResult = require("./routes/result");
 
 // Mount all resource routes
-app.use("/", homepage());
+app.use("/", homepage(db));
 app.use("/new", pollCreation());
 app.use("/:id", pollResponse());
 app.use("/my/:id", pollResult());
