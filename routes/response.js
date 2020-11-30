@@ -4,13 +4,13 @@ const router  = express.Router();
 
 
 module.exports = (db) => {
-  router.get("/:id", (req, res) => {
-    console.log(req.params)
+  router.get("/", (req, res) => {
+    console.log(req)
     db.query(`
-    SELECT *
+    SELECT title, description
     FROM options
     JOIN polls ON polls.id = poll_id
-    WHERE polls.user_link = $1;`, [req.params.id])
+    WHERE polls.user_link = 'jetpack';`)
       .then(data => {
         const options = data.rows;
         res.json({options})
@@ -23,7 +23,7 @@ module.exports = (db) => {
 
   });
 
-  router.post("/:id", (req, res) => {
+  router.post("/", (req, res) => {
 
   });
 
