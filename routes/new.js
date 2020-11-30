@@ -3,7 +3,11 @@ const router  = express.Router();
 
 module.exports = () => {
   router.get("/", (req, res) => {
+<<<<<<< HEAD
     res.render("new");
+=======
+    res.send("hello there");
+>>>>>>> get_poll
   });
 
   router.post("/", (req, res) => {
