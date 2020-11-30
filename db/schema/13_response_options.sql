@@ -7,3 +7,5 @@ CREATE TABLE response_options (
   weighting REAL,
   display_order SMALLINT
 );
+-- After all tables have been created, this will grant access to user labber
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber
