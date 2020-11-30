@@ -94,7 +94,6 @@ weighting
 2. Server setup
 3. GET / - home page route
 4. index.ejs
-5. header.ejs and other partials (not sure)?
 
 # Day 2 Mon
 /Feature/
@@ -107,19 +106,20 @@ weighting
 /Feature/
 3. POST / - create a poll
 4. sql script
-5. Backend - email
+5. random hashed link generator
+6. Backend - email
 * when a poll is finished being created, the user is given two links: an administrative link (which lets them access the results) and a submission link (which the user sends to their friends)
 * the links are also sent to the creator via email
 
 /Feature/
-6. GET /:id - go to poll with this ID
-7. id.ejs (each poll page)
+7. GET /:id - go to poll with this ID
+8. id.ejs (each poll page)
 * when a user visits the submission link, they enter their name if required and see a list of the choices for that poll
 
 /Feature/
-8. POST /:id - submit poll response
-9. sql script
-10. After submit page
+9. POST /:id - submit poll response
+10. sql script
+11. After submit page
 * each time a submission is received, the creator is notified with an email (which includes the administrative link and a link to the results)
 
 # Day 3 Tue
