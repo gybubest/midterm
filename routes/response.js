@@ -1,18 +1,19 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
 
-
+//BUGS: sometimes only options will be presented without a question.
 
 module.exports = (db) => {
+  // returns an object with single instance of the poll question and each option linked to the poll
   router.get("/", (req, res) => {
-    const response = {};
+    const poll = {};
     db.query(`
     SELECT question
     FROM polls
     WHERE polls.user_link = $1;
     `, [req.params.id])
     .then(data => {
-      response.question = data.rows;
+      poll.question = data.rows[0].question;
     })
     .then(
     db.query(`
@@ -21,8 +22,8 @@ module.exports = (db) => {
     JOIN polls ON polls.id = poll_id
     WHERE polls.user_link = $1;`, [req.params.id])
       .then(data => {
-        response.options = data.rows;
-        res.json(response)
+        poll.options = data.rows;
+        res.render("poll", {poll})
       })
       .catch(err => {
         res
@@ -33,6 +34,11 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+
+    // query 1 - INSERTS a new RESPONSE
+    // RETURNING Response_id
+
+    // QUERY 2 - INSERTS a bunch of RESPONSE OPTION (poll_id, option_id, response_id, weighting)
 
   });
 
