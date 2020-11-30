@@ -1,5 +1,5 @@
-INSERT INTO "polls" (question,email) VALUES ('lectus pede, ultrices a, auctor','vestibulum.neque@magna.ca');
-INSERT INTO "polls" (question,email) VALUES ('id sapien. Cras dolor dolor,','vestibulum.lorem.sit@interdumNunc.net');
+INSERT INTO "polls" (question,email,user_link) VALUES ('lectus pede, ultrices a, auctor','vestibulum.neque@magna.ca', 'jetpack');
+INSERT INTO "polls" (question,email,user_link) VALUES ('id sapien. Cras dolor dolor,','vestibulum.lorem.sit@interdumNunc.net', 'tenet');
 INSERT INTO "polls" (question,email) VALUES ('ut dolor dapibus gravida. Aliquam','diam@lobortisrisusIn.org');
 INSERT INTO "polls" (question,email) VALUES ('mauris id sapien. Cras dolor','Suspendisse.ac@mollis.ca');
 INSERT INTO "polls" (question,email) VALUES ('vitae purus gravida sagittis. Duis','pharetra@sedhendrerita.org');

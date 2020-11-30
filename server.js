@@ -38,14 +38,14 @@ const dataHelpers = require("./lib/data-helpers.js");
 // Routes
 const homepage = require("./routes/home");
 const pollCreation = require("./routes/new");
-const pollResponse = require("./routes/response");
 const pollResult = require("./routes/result");
+const pollResponse = require("./routes/response");
 
 // Mount all resource routes
-app.use("/", homepage());
-app.use("/new", pollCreation());
-app.use("/:id", pollResponse());
-app.use("/my/:id", pollResult());
+app.use("/", homepage(db));
+app.use("/new", pollCreation(db));
+app.use("/my/:id", pollResult(db));
+app.use("/:id", pollResponse(db));
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
