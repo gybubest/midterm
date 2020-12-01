@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="../public/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="../public/styles/result.css" type="text/css" />
+
+    <title>Results</title>
+  </head>
+  <body>
+    <h1><%= question %></h1>
+    <ul class="list-group">
+      <% for (item in results) { %>
+        <!-- results[item][0]: option title | results[item][1]: sum(weighting) -->
+        <li class="list-group-item" id="item-<%= [item][0] %>"><%= results[item][0] %> == Weighted points: <%= results[item][1] %> ==</li>
+      <% } %>
+    </ul>
+  </body>
