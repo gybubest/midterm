@@ -1,7 +1,6 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
-const { urlCreator }= require('../lib/data-helpers')
-const nodemailer = require('nodemailer');
+const { urlCreator, sendlinks }= require('../lib/helpers')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -30,28 +29,7 @@ module.exports = (db) => {
     let newPollId;
 
     //send email to creator
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD
-      }
-    });
-
-    const mail = {
-      from: 'superfunpolls@gmail.com',
-      to: values.inputEmail,
-      subject: 'Hey, manage your poll here',
-      text: `Poll question: ${values.inputNewQuestion}\nAsk your friends to vote: http://localhost:8080/${userLink}\nCheck the poll result: http://localhost:8080/${adminLink}`
-    };
-
-    transporter.sendMail(mail, (err, info) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(info)
-      }
-    });
+    sendlinks(process.env.EMAIL, process.env.PASSWORD, values.inputEmail, values.inputNewQuestion, adminLink, userLink);
 
     //Write to database
     db.query(`
