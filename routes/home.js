@@ -1,6 +1,5 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
-// const { createNewPoll } = require("../lib/data-helpers.js");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -8,7 +7,6 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    console.log(req.body);
     const isAnonymous = req.body.anonymousCheck ? true : false;
     const values = {
       inputNewQuestion: req.body.inputNewQuestion,
@@ -32,20 +30,20 @@ module.exports = (db) => {
     VALUES($1, $2, $3)
     RETURNING *;
     `, [values.inputNewQuestion, values.inputEmail, values.anonymousCheck])
-    .then(res => {
-      console.log(res.rows);
-      newPollId = res.rows[0].id;
+    .then(result => {
+      newPollId = result.rows[0].id;
       if (!values.inputOpt1) {
-        throw Error('No inputOpt1');
+        res.redirect('/new');
+        return;
       };
-
       db.query(`
       INSERT INTO options(poll_id, title, description)
       VALUES($1, $2, $3);
       `, [newPollId, values.inputOpt1, values.inputOpt1Descript]);
 
       if (!values.inputOpt2) {
-        throw Error('No inputOpt2');
+        res.redirect('/new');
+        return;
       }
 
       db.query(`
@@ -54,7 +52,8 @@ module.exports = (db) => {
       `, [newPollId, values.inputOpt2, values.inputOpt2Descript]);
 
       if (!values.inputOpt3) {
-        throw Error('No inputOpt3');
+        res.redirect('/');
+        return;
       }
 
       db.query(`
@@ -63,7 +62,8 @@ module.exports = (db) => {
       `, [newPollId, values.inputOpt3, values.inputOpt3Descript]);
 
       if (!values.inputOpt4) {
-        throw Error('No inputOpt4');
+        res.redirect('/');
+        return;
       }
 
       db.query(`
@@ -72,14 +72,16 @@ module.exports = (db) => {
       `, [newPollId, values.inputOpt4, values.inputOpt4Descript]);
 
       if (!values.inputOpt5) {
-        throw Error('No inputOpt5');
+        res.redirect('/');
+        return;
       }
 
       db.query(`
       INSERT INTO options(poll_id, title, description)
       VALUES($1, $2, $3);
       `, [newPollId, values.inputOpt5, values.inputOpt5Descript]);
-      res.send('ok');
+
+      res.redirect('/')
     })
     .catch(e => {
       console.error(e);
