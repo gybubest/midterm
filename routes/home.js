@@ -1,13 +1,7 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
-const md5 = require('md5')
+const urlCreator = require('../public/scripts/hasher.js')
 const nodemailer = require('nodemailer');
-
-const urlCreator = () => {
-  const string = 'where should we go for lunch?'
-  const starter = Math.random().toString(36).substring(7);
-  return md5(starter+string)
-}
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
