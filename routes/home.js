@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
-const urlCreator = require('../public/scripts/hasher.js')
+const { urlCreator }= require('../lib/data-helpers')
 const nodemailer = require('nodemailer');
 
 module.exports = (db) => {

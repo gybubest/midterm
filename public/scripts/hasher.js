@@ -6,11 +6,9 @@ const urlCreator = () => {
   return md5(starter+string)
 }
 
-// console.log(urlCreator())
-// console.log(urlCreator())
-// console.log(urlCreator())
-// console.log(urlCreator())
-// console.log(urlCreator())
-// console.log(urlCreator())
-
-module.exports = urlCreator;
+console.log(urlCreator())
+console.log(urlCreator())
+console.log(urlCreator())
+console.log(urlCreator())
+console.log(urlCreator())
+console.log(urlCreator())
