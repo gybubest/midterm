@@ -8,16 +8,78 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    let values = [req.body.inputNewQuestion, req.body.inputEmail];
+    console.log(req.body);
+    const isAnonymous = req.body.anonymousCheck ? true : false;
+    const values = {
+      inputNewQuestion: req.body.inputNewQuestion,
+      inputEmail: req.body.inputEmail,
+      anonymousCheck: isAnonymous,
+      inputOpt1: req.body.inputOpt1,
+      inputOpt1Descript: req.body.inputOpt1Descript,
+      inputOpt2: req.body.inputOpt2,
+      inputOpt2Descript: req.body.inputOpt2Descript,
+      inputOpt3: req.body.inputOpt3,
+      inputOpt3Descript: req.body.inputOpt3Descript,
+      inputOpt4: req.body.inputOpt4,
+      inputOpt4Descript: req.body.inputOpt4Descript,
+      inputOpt5: req.body.inputOpt5,
+      inputOpt5Descript: req.body.inputOpt5Descript
+    };
+    let newPollId;
+
     db.query(`
-    INSERT INTO polls(question, email)
-    VALUES($1, $2)
+    INSERT INTO polls(question, email, anonymous)
+    VALUES($1, $2, $3)
     RETURNING *;
-    `, values)
+    `, [values.inputNewQuestion, values.inputEmail, values.anonymousCheck])
     .then(res => {
-      console.log("back in the post", res);
-      // values = [req.body.inputNewQuestion, req.body.inputEmail, req.body.inputOpt1, req.body.inputOpt1Descript, req.body.inputOpt2, req.body.inputOpt2Descript, req.body.inputOpt3, req.body.inputOpt3Descript, req.body.inputOpt4, req.body.inputOpt4Descript, req.body.inputOpt5, req.body.inputOpt5Descript];
-      res.send(poll);
+      console.log(res.rows);
+      newPollId = res.rows[0].id;
+      if (!values.inputOpt1) {
+        throw Error('No inputOpt1');
+      };
+
+      db.query(`
+      INSERT INTO options(poll_id, title, description)
+      VALUES($1, $2, $3);
+      `, [newPollId, values.inputOpt1, values.inputOpt1Descript]);
+
+      if (!values.inputOpt2) {
+        throw Error('No inputOpt2');
+      }
+
+      db.query(`
+      INSERT INTO options(poll_id, title, description)
+      VALUES($1, $2, $3);
+      `, [newPollId, values.inputOpt2, values.inputOpt2Descript]);
+
+      if (!values.inputOpt3) {
+        throw Error('No inputOpt3');
+      }
+
+      db.query(`
+      INSERT INTO options(poll_id, title, description)
+      VALUES($1, $2, $3);
+      `, [newPollId, values.inputOpt3, values.inputOpt3Descript]);
+
+      if (!values.inputOpt4) {
+        throw Error('No inputOpt4');
+      }
+
+      db.query(`
+      INSERT INTO options(poll_id, title, description)
+      VALUES($1, $2, $3);
+      `, [newPollId, values.inputOpt4, values.inputOpt4Descript]);
+
+      if (!values.inputOpt5) {
+        throw Error('No inputOpt5');
+      }
+
+      db.query(`
+      INSERT INTO options(poll_id, title, description)
+      VALUES($1, $2, $3);
+      `, [newPollId, values.inputOpt5, values.inputOpt5Descript]);
+      res.send('ok');
     })
     .catch(e => {
       console.error(e);
@@ -26,73 +88,4 @@ module.exports = (db) => {
   });
 
   return router;
-
-  // const createNewPoll = function(poll, db) {
-  //   const values = [poll.inputNewQuestion, poll.inputEmail, poll.inputOpt1, poll.inputOpt1Descript, poll.inputOpt2, poll.inputOpt2Descript, poll.inputOpt3, poll.inputOpt3Descript, poll.inputOpt4, poll.inputOpt4Descript, poll.inputOpt5, poll.inputOpt5Descript];
-  //   console.log('in the createNewPoll');
-
-  //   let queryString = `
-  //   WITH new_option AS (INSERT INTO polls(question, email)
-  //   VALUES($1, $2)
-  //   RETURNING poll.id);
-  //   // INSERT INTO options(poll_id, title, description)
-  //   // VALUES((select id from new_option), $3, $4)
-  //   // INSERT INTO options(poll_id, title, description)
-  //   // VALUES((select id from new_option), $5, $6)
-  //   `
-  //   if (poll.inputOpt3) {
-  //     queryString += `INSERT INTO options(poll_id, title, description) VALUES((select id from new_option), $7, $8)`;
-  //   }
-
-  //   if (poll.inputOpt4) {
-  //     queryString += `INSERT INTO options(poll_id, title, description) VALUES((select id from new_option), $9, $10)`;
-  //   }
-
-  //   if (poll.inputOpt5) {
-  //     queryString += `INSERT INTO options(poll_id, title, description) VALUES((select id from new_option), $11, $12)`;
-  //   }
-  //   console.log('queryString', queryString, 'values', values)
-  //   return db.query((queryString + ';'), values)
-  //   .then(res => {
-  //     console.log("in the query promise", res);
-  //     if (res.rows) {
-  //       console.log( "res.rows",res.rows);
-  //       return res.rows;
-  //     }
-  //     return null;
-  //   })
-  //   .catch(err => console.log(err));
-  // };
-
-  // router.post("/", (req, res) => {
-  //   createNewPoll(req.body, db)
-  //     .then(poll => {
-  //       console.log("back in the post", poll);
-  //       res.send(poll);
-  //     })
-  //     .catch(e => {
-  //       console.error(e);
-  //       res.send(e)
-  //     });
-  // });
-  // const createNewPoll = function(poll, db) {
-    // const values = [poll.inputNewQuestion, poll.inputEmail, poll.inputOpt1, poll.inputOpt1Descript, poll.inputOpt2, poll.inputOpt2Descript, poll.inputOpt3, poll.inputOpt3Descript, poll.inputOpt4, poll.inputOpt4Descript, poll.inputOpt5, poll.inputOpt5Descript];
-    // let queryString = `
-    // WITH new_option AS ()
-    // INSERT INTO options(poll_id, title, description)
-    // VALUES((select id from new_option), $3, $4)
-    // `
-    // if (poll.inputOpt3) {
-    //   queryString += `INSERT INTO options(poll_id, title, description) VALUES((select id from new_option), $7, $8)`;
-    // }
-
-    // if (poll.inputOpt4) {
-    //   queryString += `INSERT INTO options(poll_id, title, description) VALUES((select id from new_option), $9, $10)`;
-    // }
-
-    // if (poll.inputOpt5) {
-    //   queryString += `INSERT INTO options(poll_id, title, description) VALUES((select id from new_option), $11, $12)`;
-    // }
-
-
 };
