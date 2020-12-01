@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="../public/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="../public/styles/result.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/result.css" type="text/css" />
 
     <title>Results</title>
   </head>
   <body>
-    <h1><%= question %></h1>
-    <ul class="list-group">
-      <% for (item in results) { %>
-        <!-- results[item][0]: option title | results[item][1]: sum(weighting) -->
-        <li class="list-group-item" id="item-<%= [item][0] %>"><%= results[item][0] %> == Weighted points: <%= results[item][1] %> ==</li>
-      <% } %>
-    </ul>
+    <main class="result-container">
+      <h1><%= question %></h1>
+      <ul class="list-group">
+        <% for (item in results) { %>
+          <!-- results[item][0]: option title | results[item][1]: sum(weighting) -->
+          <li class="list-group-item" id="item-<%= [item][0] %>" style="width:<%= results[item][1] %>%;"><%= results[item][0] %> == Percent of max points: <%= results[item][1] %> ==</li>
+        <% } %>
+      </ul>
+      <a href="/new"><button class="homepage-button">Make another poll</button></a>
+    </main>
   </body>
