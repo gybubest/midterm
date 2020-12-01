@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
 const md5 = require('md5')
-
+const nodemailer = require('nodemailer');
 
 const urlCreator = () => {
   const string = 'where should we go for lunch?'
@@ -35,6 +35,31 @@ module.exports = (db) => {
     const userLink = urlCreator();
     let newPollId;
 
+    //send email to creator
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
+      }
+    });
+
+    const mail = {
+      from: 'superfunpolls@gmail.com',
+      to: values.inputEmail,
+      subject: 'Hey, manage your poll here',
+      text: `Poll question: ${values.inputNewQuestion}\nAsk your friends to vote: http://localhost:8080/${userLink}\nCheck the poll result: http://localhost:8080/${adminLink}`
+    };
+
+    transporter.sendMail(mail, (err, info) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(info)
+      }
+    });
+
+    //Write to database
     db.query(`
     INSERT INTO polls(question, email, admin_link, user_link, anonymous)
     VALUES($1, $2, $3, $4, $5)
