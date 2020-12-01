@@ -19,13 +19,16 @@
     <main class="homepage-container">
       <form id="poll">
         <ul id="sortable">
+
           <% for(let option of poll.options) { %>
           <li id="item_<%= option.id %>"class="ui-state-default option"><span class="ui-icon ui-icon-arrowthick-2-n-s"><%= option.title %></span></li>
-
           <% } %>
           </ul>
           <input id="name" type="text" placeholder="Your Name">
-      </form>
+        </form>
+        <p id="error-msg" style="display: none">
+          The poll creator has requested your name! (255 chars max)
+        </p>
       <button id="submitOrder">Submit</button>
     </main>
   </body>
@@ -48,22 +51,37 @@
           $( "#sortable" ).disableSelection();
         });
 
+        const validator = (str) => {
+          if (str === null || str === '' || str.length > 255) {
+          return null;
+        }
+          let div = document.createElement('div');
+          div.appendChild(document.createTextNode(str));
+          return div.innerHTML;
+        };
 
-        $( "#submitOrder" ).click( () => {;
-          const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
-          console.log(anonymous);
-          const weightings = [];
-          for (let i = 0; i < orderedList.length; i++) {
-            const selectedOptionID = orderedList[i].slice(7);
-            weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length]);
-          };
-          $.ajax(`/${userLink}`, {
-          method: "POST",
-          data: {
-            poll_id: pollID,
-            name: 'bob',
-            responses: weightings }
-          })
+
+        $( "#submitOrder" ).click( () => {
+          const voter_name = validator($( "#name" ).val());
+          if (!anonymous && !voter_name) {
+            $("#error-msg").show(200);
+            setTimeout(() => $("#error-msg").hide(200), 3600);
+          } else {
+            const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
+            console.log(anonymous);
+            const weightings = [];
+            for (let i = 0; i < orderedList.length; i++) {
+              const selectedOptionID = orderedList[i].slice(7);
+              weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length]);
+            };
+            $.ajax(`/${userLink}`, {
+            method: "POST",
+            data: {
+              poll_id: pollID,
+              name: voter_name,
+              responses: weightings }
+            });
+          }
           // .then( (res) => {
           //   if (res === "Poll submitted successfully!") {
           //     window.location.assign("/");

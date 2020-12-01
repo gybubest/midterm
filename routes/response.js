@@ -41,6 +41,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     // takes variables from poll response
+    console.log(req.body);
     const pollID = req.body.poll_id;
     const name = req.body.name;
     const optionResponses = req.body.responses;
