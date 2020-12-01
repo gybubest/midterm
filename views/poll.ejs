@@ -11,12 +11,11 @@
     <!-- App CSS -->
     <!-- <link rel="stylesheet" href="/public/styles/layout.css" type="text/css" /> -->
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- App JS -->
+
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
+      const submittedPoll = ""
+
       $( document ).ready( () => {
         $( function() {
           $( "#sortable" ).sortable();
@@ -26,19 +25,20 @@
 
         $( "#submitOrder" ).click( () => {;
           const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
-          console.log(orderedList)
+          // console.log(orderedList)
           const weightings = [];
           for (let i = 0; i < orderedList.length; i++) {
             const selectedOptionID = orderedList[i].slice(7);
             weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length])
-
-
-
           }
           console.log(weightings);
-
+          console.log(submittedPoll)
+          // $.ajax(`/${submittedPoll.user_links}`, {
+          // method: "POST",
+          // data: {text: validatedText};
+          // }
         });
-      });
+      }); -->
       </script>
 
   </head>
@@ -55,8 +55,48 @@
 
           <% } %>
           </ul>
+          <input type="text" placeholder="Your Name">
       </form>
-      <button id="submitOrder">Order</button>
+      <button id="submitOrder">Submit</button>
     </main>
   </body>
+
+
+  <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- App JS -->
+    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript">
+      const userLink = "<%=poll.user_link%>"
+      const pollID = "<%=poll.poll_id%>"
+
+      $( document ).ready( () => {
+        $( function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+        });
+
+
+        $( "#submitOrder" ).click( () => {;
+          const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
+          console.log(orderedList);
+          const weightings = [];
+          for (let i = 0; i < orderedList.length; i++) {
+            const selectedOptionID = orderedList[i].slice(7);
+            weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length]);
+          };
+          console.log(weightings);
+          console.log(userLink);
+          $.ajax(`/${userLink}`, {
+          method: "POST",
+          data: {
+            poll_id: pollID,
+            name: 'bob',
+            responses: weightings }
+          })
+          .then(console.log("you did it!"))
+        });
+      });
+      </script>
 </html>
