@@ -22,6 +22,7 @@ db.connect();
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
   src: __dirname + "/styles",
@@ -30,10 +31,6 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
-
-
-// The `data-helpers` module provides functions we use to play with the database.
-const dataHelpers = require("./lib/data-helpers.js");
 
 // Routes
 const homepage = require("./routes/home");
