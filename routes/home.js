@@ -1,5 +1,13 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
+const md5 = require('md5')
+
+
+const urlCreator = () => {
+  const string = 'where should we go for lunch?'
+  const starter = Math.random().toString(36).substring(7);
+  return md5(starter+string)
+}
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -23,13 +31,15 @@ module.exports = (db) => {
       inputOpt5: req.body.inputOpt5,
       inputOpt5Descript: req.body.inputOpt5Descript
     };
+    const adminLink = urlCreator();
+    const userLink = urlCreator();
     let newPollId;
 
     db.query(`
-    INSERT INTO polls(question, email, anonymous)
-    VALUES($1, $2, $3)
+    INSERT INTO polls(question, email, admin_link, user_link, anonymous)
+    VALUES($1, $2, $3, $4, $5)
     RETURNING *;
-    `, [values.inputNewQuestion, values.inputEmail, values.anonymousCheck])
+    `, [values.inputNewQuestion, values.inputEmail, adminLink, userLink, values.anonymousCheck])
     .then(result => {
       newPollId = result.rows[0].id;
       if (!values.inputOpt1) {
