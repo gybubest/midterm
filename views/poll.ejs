@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superfun Polls - Poll Page</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- App CSS -->
+    <!-- <link rel="stylesheet" href="/public/styles/layout.css" type="text/css" /> -->
+
+
+    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <!-- <script type="text/javascript">
+      const submittedPoll = ""
+
+      $( document ).ready( () => {
+        $( function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+        });
+
+
+        $( "#submitOrder" ).click( () => {;
+          const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
+          // console.log(orderedList)
+          const weightings = [];
+          for (let i = 0; i < orderedList.length; i++) {
+            const selectedOptionID = orderedList[i].slice(7);
+            weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length])
+          }
+          console.log(weightings);
+          console.log(submittedPoll)
+          // $.ajax(`/${submittedPoll.user_links}`, {
+          // method: "POST",
+          // data: {text: validatedText};
+          // }
+        });
+      }); -->
+      </script>
+
+  </head>
+
+  <body>
+    <header class="homepage-title">
+      <h1 id="question"><%= poll.question %></h1>
+    </header>
+    <main class="homepage-container">
+      <form id="poll">
+        <ul id="sortable">
+          <% for(let option of poll.options) { %>
+          <li id="item_<%= option.id %>"class="ui-state-default option"><span class="ui-icon ui-icon-arrowthick-2-n-s"><%= option.title %></span></li>
+
+          <% } %>
+          </ul>
+          <input type="text" placeholder="Your Name">
+      </form>
+      <button id="submitOrder">Submit</button>
+    </main>
+  </body>
+
+
+  <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- App JS -->
+    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript">
+      const userLink = "<%=poll.user_link%>"
+      const pollID = "<%=poll.poll_id%>"
+
+      $( document ).ready( () => {
+        $( function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+        });
+
+
+        $( "#submitOrder" ).click( () => {;
+          const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
+          console.log(orderedList);
+          const weightings = [];
+          for (let i = 0; i < orderedList.length; i++) {
+            const selectedOptionID = orderedList[i].slice(7);
+            weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length]);
+          };
+          console.log(weightings);
+          console.log(userLink);
+          $.ajax(`/${userLink}`, {
+          method: "POST",
+          data: {
+            poll_id: pollID,
+            name: 'bob',
+            responses: weightings }
+          })
+          .then(console.log("you did it!"))
+        });
+      });
+      </script>
+</html>
