@@ -10,8 +10,8 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     // Create values and links
     const values = createValues(req);
-    const adminLink = urlCreator();
-    const userLink = urlCreator();
+    const adminLink = urlCreator(values.inputNewQuestion);
+    const userLink = urlCreator(values.inputNewQuestion);
 
     //send email to creator
     sendlinks(process.env.EMAIL, process.env.PASSWORD, values.inputEmail, values.inputNewQuestion, adminLink, userLink);
