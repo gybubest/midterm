@@ -7,9 +7,38 @@ body {
     color: #244751;
   }
 
-  main {
+  main.result-container {
     padding: 0.25em;
     background-color: lightblue;
+
+    #item-0 {
+      background-color: #00FF00;
+    }
+    #item-1 {
+      background-color: #d0ff00;
+    }
+    #item-2 {
+      background-color: #fffb00;
+    }
+    #item-3 {
+      background-color: #ff6600;
+    }
+    #item-4 {
+      background-color: #ff0000;
+    }
+
+    button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a {
+      display: block;
+      margin: 1em;
+    }
   }
 
 }
+
+
