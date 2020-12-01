@@ -8,38 +8,7 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- App CSS -->
-    <!-- <link rel="stylesheet" href="/public/styles/layout.css" type="text/css" /> -->
 
-
-    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
-    <!-- <script type="text/javascript">
-      const submittedPoll = ""
-
-      $( document ).ready( () => {
-        $( function() {
-          $( "#sortable" ).sortable();
-          $( "#sortable" ).disableSelection();
-        });
-
-
-        $( "#submitOrder" ).click( () => {;
-          const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
-          // console.log(orderedList)
-          const weightings = [];
-          for (let i = 0; i < orderedList.length; i++) {
-            const selectedOptionID = orderedList[i].slice(7);
-            weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length])
-          }
-          console.log(weightings);
-          console.log(submittedPoll)
-          // $.ajax(`/${submittedPoll.user_links}`, {
-          // method: "POST",
-          // data: {text: validatedText};
-          // }
-        });
-      }); -->
-      </script>
 
   </head>
 
@@ -55,7 +24,7 @@
 
           <% } %>
           </ul>
-          <input type="text" placeholder="Your Name">
+          <input id="name" type="text" placeholder="Your Name">
       </form>
       <button id="submitOrder">Submit</button>
     </main>
@@ -68,10 +37,12 @@
     <!-- App JS -->
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
     <script type="text/javascript">
-      const userLink = "<%=poll.user_link%>"
-      const pollID = "<%=poll.poll_id%>"
+      const userLink = "<%=poll.user_link%>";
+      const pollID = "<%=poll.poll_id%>";
+      const anonymous = ("<%=poll.anonymous%>" === "false"? false : true);
 
       $( document ).ready( () => {
+
         $( function() {
           $( "#sortable" ).sortable();
           $( "#sortable" ).disableSelection();
@@ -80,14 +51,12 @@
 
         $( "#submitOrder" ).click( () => {;
           const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
-          console.log(orderedList);
+          console.log(anonymous);
           const weightings = [];
           for (let i = 0; i < orderedList.length; i++) {
             const selectedOptionID = orderedList[i].slice(7);
             weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length]);
           };
-          console.log(weightings);
-          console.log(userLink);
           $.ajax(`/${userLink}`, {
           method: "POST",
           data: {
@@ -95,7 +64,11 @@
             name: 'bob',
             responses: weightings }
           })
-          .then(console.log("you did it!"))
+          // .then( (res) => {
+          //   if (res === "Poll submitted successfully!") {
+          //     window.location.assign("/");
+          //   }
+          // });
         });
       });
       </script>
