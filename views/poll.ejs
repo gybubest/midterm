@@ -23,10 +23,21 @@
           $( "#sortable" ).disableSelection();
         });
 
-        const getOrder = () => {
-          const order = $( "#sortable" ).sortable( "serialize", { key: "sort" } );
-          console.log(order);
-        };
+
+        $( "#submitOrder" ).click( () => {;
+          const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
+          console.log(orderedList)
+          const weightings = [];
+          for (let i = 0; i < orderedList.length; i++) {
+            const selectedOptionID = orderedList[i].slice(7);
+            weightings.push([selectedOptionID, (orderedList.length - i) / orderedList.length])
+
+
+
+          }
+          console.log(weightings);
+
+        });
       });
       </script>
 
@@ -40,12 +51,12 @@
       <form id="poll">
         <ul id="sortable">
           <% for(let option of poll.options) { %>
-          <li id="item_<%= option.id %>"class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"><%= option.title %></span></li>
+          <li id="item_<%= option.id %>"class="ui-state-default option"><span class="ui-icon ui-icon-arrowthick-2-n-s"><%= option.title %></span></li>
 
           <% } %>
           </ul>
       </form>
-      <button onclick=getOrder()>Order</button>
+      <button id="submitOrder">Order</button>
     </main>
   </body>
 </html>

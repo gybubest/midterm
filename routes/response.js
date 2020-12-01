@@ -13,6 +13,7 @@ module.exports = (db) => {
     WHERE polls.user_link = $1;
     `, [req.params.id])
     .then(data => {
+      console.log(data.rows)
       poll.question = data.rows[0].question;
     })
     .then(
@@ -23,6 +24,7 @@ module.exports = (db) => {
     WHERE polls.user_link = $1;`, [req.params.id])
       .then(data => {
         poll.options = data.rows;
+        console.log(poll.options);
         res.render("poll", {poll})
       })
       .catch(err => {
