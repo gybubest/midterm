@@ -13,9 +13,22 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- App JS -->
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript">
+      $( document ).ready( () => {
+        $( function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+        });
+
+        const getOrder = () => {
+          const order = $( "#sortable" ).sortable( "serialize", { key: "sort" } );
+          console.log(order);
+        };
+      });
+      </script>
 
   </head>
 
@@ -25,13 +38,14 @@
     </header>
     <main class="homepage-container">
       <form id="poll">
-        <div id="container">
+        <ul id="sortable">
           <% for(let option of poll.options) { %>
-          <div id="<%= option.title %>"><%= option.title %></div>
+          <li id="item_<%= option.id %>"class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"><%= option.title %></span></li>
 
           <% } %>
-        </div>
+          </ul>
       </form>
+      <button onclick=getOrder()>Order</button>
     </main>
   </body>
 </html>

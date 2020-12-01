@@ -17,7 +17,7 @@ module.exports = (db) => {
     })
     .then(
     db.query(`
-    SELECT title, description
+    SELECT options.id, title, description
     FROM options
     JOIN polls ON polls.id = poll_id
     WHERE polls.user_link = $1;`, [req.params.id])
