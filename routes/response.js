@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
+const { sendlinks } = require("../lib/helpers");
 
 module.exports = (db) => {
   // supplied with '/:id' parameters from server.js mergeParams
@@ -54,6 +55,7 @@ module.exports = (db) => {
     .then(res => {
       const responseID = res.rows[0].response_id;
       // builds a query for a variable number of option responses
+      // maybe better to perform one query per option?
       let queryString = `INSERT INTO response_options (poll_id,option_id,response_id,display_order,weighting) VALUES`
       for (let i = 0; i < optionResponses.length; i++) {
         const optionID = optionResponses[i][0];
@@ -66,11 +68,29 @@ module.exports = (db) => {
       queryString += `;`
       return db.query(queryString)
       })
-      .then( () => res.send("Poll submitted successfully!"))
+      .then( () => {
+        res.send("Poll submitted successfully!");
+
+      // performs DB query to get creator email
+        return db.query(`
+        SELECT *
+        FROM polls
+        WHERE id = $1;
+        `, [pollID]);
+      })
+      .then( (info) => {
+    // generates and sends creator an email notifying them their poll has been responded to
+        const infoForEmail = {
+          question : info.rows[0].question,
+          email : info.rows[0].email,
+          admin_link : info.rows[0].admin_link,
+          user_link : info.rows[0].user_link,
+        };
+
+        return sendlinks(process.env.EMAIL, process.env.PASSWORD, infoForEmail.email, "Someone has responded to your poll!", infoForEmail.question, infoForEmail.admin_link, infoForEmail.user_link )
+      })
       .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
+      console.log(err);
     })
   });
 
