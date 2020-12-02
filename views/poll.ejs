@@ -68,7 +68,6 @@
             setTimeout(() => $("#error-msg").hide(200), 3600);
           } else {
             const orderedList = $( "#sortable" ).sortable( "serialize", { key: "option" } ).split("&");
-            console.log(anonymous);
             const weightings = [];
             for (let i = 0; i < orderedList.length; i++) {
               const selectedOptionID = orderedList[i].slice(7);
