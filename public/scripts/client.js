@@ -4,6 +4,7 @@
  */
 
 $(document).ready(() => {
+  // Form mandatory fields validation
   $('form.create-poll').validate({
     rules: {
         inputEmail: {

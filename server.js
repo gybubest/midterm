@@ -35,12 +35,14 @@ app.use(express.static("public"));
 // Routes
 const homepage = require("./routes/home");
 const pollCreation = require("./routes/new");
+const links = require("./routes/links");
 const pollResult = require("./routes/result");
 const pollResponse = require("./routes/response");
 
 // Mount all resource routes
 app.use("/", homepage(db));
 app.use("/new", pollCreation(db));
+app.use("/links/:id", links(db));
 app.use("/my/:id", pollResult(db));
 app.use("/:id", pollResponse(db));
 
