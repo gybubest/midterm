@@ -8,6 +8,9 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- External JS -->
+    <script src="dist/clipboard.min.js"></script>
+
     <!-- App CSS -->
     <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
 
@@ -17,10 +20,17 @@
       <h1>Hope you had fun!</h1>
     </header>
     <main class="linkspage-container">
-      <p>Question: <%= question %></p>
-      <p>Share the poll with your friends: http://localhost:8080/<%= userLink %></p>
-      <p>Check the poll results here: http://localhost:8080/my/<%= adminLink %></p>
-      <a href="/new"><button class="linkspage-button">Make another poll</button></a>
+      <div id="new-links">
+        <p>Question: <%= question %></p>
+        <p>Share the poll with your friends: <a href="/<%= userLink %>">http://localhost:8080/<%= userLink %></a></p>
+        <p>Check the poll results here: <a href="/my/<%= adminLink %>">http://localhost:8080/my/<%= adminLink %></a></p>
+      </div>
+      <button class="btn">
+        Copy to clipboard
+      </button>
+      <div>
+        <a href="/new"><button class="linkspage-button">Make another poll</button></a>
+      </div>
     </main>
   </body>
 </html>
