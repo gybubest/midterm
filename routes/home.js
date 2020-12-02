@@ -14,7 +14,8 @@ module.exports = (db) => {
     const userLink = urlCreator(values.inputNewQuestion);
 
     //send email to creator
-    sendlinks(process.env.EMAIL, process.env.PASSWORD, values.inputEmail, values.inputNewQuestion, adminLink, userLink);
+    const subject = 'Hey, your poll has been successfully created!';
+    sendlinks(process.env.EMAIL, process.env.PASSWORD, values.inputEmail, subject, values.inputNewQuestion, adminLink, userLink);
 
     //Write queries to database
     createQueries(res, db, values, adminLink, userLink);
