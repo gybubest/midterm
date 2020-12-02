@@ -1,10 +1,12 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
 
+
 module.exports = (db) => {
   router.get("/", (req, res) => {
     const query1 = {};
     let query2 = {};
+    let query3 = {};
     const url = req.params.id
     console.log("I'm at /my/:id", "id:", req.params.id);
     db.query(`
@@ -36,7 +38,23 @@ module.exports = (db) => {
             data.rows.forEach((element, index) => {
               // console.log(element);
               query2[index] = Object.values(element);
-            });
+            })
+            // ***inserted from here
+            // .then(
+            //   db.query(`
+            //   SELECT voter_name, option_id
+            //   FROM response_options
+            //   JOIN polls ON poll_id = polls.id
+            //   JOIN options ON option_id = options.id
+            //   JOIN responses ON response_id = responses.id
+            //   WHERE admin_link = $1
+            //   AND weighting = 1;`,
+            //   [req.params.id]
+            // )
+            // .then(data => {
+            //   console.log(data.rows);
+            // })
+            // ***to here
             console.log("query2 = ", query2);
             // calculate percentage of max weighted points (first object is the max since the query is ordered by sum of weighted points for each option)
             const max = query2['0'][1];
