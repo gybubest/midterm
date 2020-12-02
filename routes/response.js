@@ -86,8 +86,8 @@ module.exports = (db) => {
           admin_link : info.rows[0].admin_link,
           user_link : info.rows[0].user_link,
         };
-
-        return sendlinks(process.env.EMAIL, process.env.PASSWORD, infoForEmail.email, "Someone has responded to your poll!", infoForEmail.question, infoForEmail.admin_link, infoForEmail.user_link )
+        const subject = "Someone has responded to your poll!";
+        return sendlinks(process.env.EMAIL, process.env.PASSWORD, infoForEmail.email, subject, infoForEmail.question, infoForEmail.admin_link, infoForEmail.user_link )
       })
       .catch(err => {
       console.log(err);
