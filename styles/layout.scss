@@ -11,6 +11,14 @@ body {
     padding: 0.25em;
     background-color: lightblue;
 
+    h1.question {
+      text-align: center;
+    }
+
+    h3.error-message {
+      text-align: center;
+    }
+
     #item-0 {
       background-color: #00FF00;
     }
