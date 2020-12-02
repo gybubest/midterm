@@ -3,6 +3,7 @@
  * jQuery is already loaded
  */
 
+
 $(document).ready(() => {
   // Form mandatory fields validation
   $('form.create-poll').validate({
@@ -23,7 +24,7 @@ $(document).ready(() => {
     }
   });
 
-  $('form.create-poll input').on('keyup blur', function () {
+  $('form.create-poll input').on('keyup blur', () => {
       if ($('form.create-poll').valid()) {
           $('button.newPollSubmitButton').prop('disabled', false);
       } else {
@@ -32,3 +33,14 @@ $(document).ready(() => {
   });
 
 });
+
+const copy = (selector) => {
+  var $temp = $("<div>");
+  $("body").append($temp);
+  $temp.attr("contenteditable", true)
+      .html($(selector).html()).select()
+      .on("focus", function() { document.execCommand('selectAll',false,null); })
+      .focus();
+  document.execCommand("copy");
+  $temp.remove();
+};
