@@ -5,10 +5,14 @@ const { getQuestion, getOptionsWithWeighting, getAllVotersFirstOption } = requir
 module.exports = (db) => {
   router.get("/", (req, res) => {
     Promise.all ([
-      getQuestion(db, req.params.id),
-      getOptionsWithWeighting(db, req.params.id)
+      getQuestion(db, res, req.params.id),
+      getOptionsWithWeighting(db, res, req.params.id)
     ])
     .then( ([questionQuery, optionsQuery]) => {
+      // if (getOptionsWithWeighting.error) {
+      //   const templateVars {}
+      // }
+
       console.log("***questionQuery =", questionQuery);
       const templateVars = { question: questionQuery, results: optionsQuery};
       console.log("templateVars =", templateVars);
