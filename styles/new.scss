@@ -31,6 +31,14 @@ body {
     box-shadow: 0 0 10px #ffca7c;
   }
 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active  {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #fff !important;
+  }
+
   div.form-btn {
     display: flex;
     flex-direction: row;
@@ -41,6 +49,7 @@ body {
     width: 100%;
     background-color: #ffa31a;
     border: none;
+    margin-top: 10px;
     margin-bottom: 10%;
   }
 }
