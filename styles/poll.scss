@@ -1,60 +1,74 @@
 body {
-  background-color: #ebf0a3;
-  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-color: #2b3020;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-dot.png");
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: silver;
 
   header {
-
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: white;
   }
   h1 {
-    color: #244751;
+
     font-family: 'Luckiest Guy', cursive;
   }
   h2 {
     font-family: 'Kalam', cursive;
+
   }
 
 
   main {
     padding: 0.25em;
     font-family: 'Kalam', cursive;
-    width: 90%;
-    max-width: 900px;
+    width: 80%;
+
     height: 90%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     ol {
-
-
-
-      .option {
+      width: 90%;
+      li {
+        list-style-position: inside;
         padding: 20px;
-        border: 7px solid black;
+        border: 5px groove grey;
         margin: 1em;
-        height: 100px;
-        box-shadow: 2px 3px 1px 1px grey;
-        background-color: grey 0.4;
+        flex-grow: 1;
+        box-shadow: 2px 3px 1px 1px black;
 
-        &:hover {
-          height: 200px;
 
-          .option-description {
-            display: block;
-
-            }
-        }
 
         .option-description {
           display: none;
-
-
-
+          font-size: 1.5em;
         }
+          &:hover {
+            height: 200%;
+
+            .option-title {
+              color: white;
+
+            }
+            .option-description {
+              display: block;
+            }
+          }
+
       }
 
     }
+    input {
+      margin: 1em;
 
+    }
+    button {
+      box-shadow: 1px 2px 1px 1px lightgreen;
+    }
   }
 
 }
