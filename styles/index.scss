@@ -2,7 +2,7 @@
 body {
   color: #ffa31a;
   background-color: #1b1b1b;
-  font-family: Lora, Source Sans Pro;
+  font-family: Lato, Source Sans Pro;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +21,7 @@ body {
     justify-content: center;
     width: 100%;
     font-size: 8vw;
+    font-weight: bold;
   }
 
   main {
@@ -39,6 +40,10 @@ body {
   a:hover {
     color: #fff;
     background-color: #1b1b1b;
+  }
+
+  a:active {
+    transform: translateY(2px);
   }
 }
 
