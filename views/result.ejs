@@ -25,14 +25,13 @@
         <% } else if (!question['error']) { %>
           <ul class="list-group">
           <% for (item in results) { %>
-            <div class="list-group-container" style="width:<%= results[item][1] %>%;border-color:<%= results[item][3] %>;">
-            <!-- results[item][0]: option title | results[item][1]: sum(weighting) | results[item][2]: option_id | results[item][3]: color -->
-              <li class="list-group-item" id="item-<%= [item][0] %>">
-              <%= results[item][0] %>
+            <div class="list-group-container" style="width:<%= results[item][4] %>%;border-color:<%= results[item][3] %>;">
+            <!-- results[item][0]: option title | results[item][1]: percentage of borda points | results[item][2]: option_id | results[item][3]: color -->
+              <li class="list-group-item" id="item-<%= [item][0] %>">(<%= results[item][1] %>%) - <%= results[item][0] %>
               </li>
             <!-- first_option[option_id] contains and array of voter_names who picked that option_id as their first choice -->
             <% if (firstOption[results[item][2]]) { %>
-              <li class="first-choice list-group-item" id="first-<%= [item][0] %>" style="width:<%= results[item][1] %>%;border-color:<%= results[item][3] %>;">↳ Top choice for: <%= firstOption[results[item][2]] %>
+              <li class="first-choice list-group-item" id="first-<%= [item][0] %>" style="width:<%= results[item][4] %>%;border-color:<%= results[item][3] %>;">↳ Top choice for: <%= firstOption[results[item][2]] %>
               </li>
             <% } %>
             </div>

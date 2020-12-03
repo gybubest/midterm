@@ -14,6 +14,7 @@ module.exports = (db) => {
           optionsQuery = getColorsForNumberOfOptions(optionsQuery);
         }
         const templateVars = { question: questionQuery, results: optionsQuery, firstOption: votersFirstOption };
+        console.log("***templateVars =", templateVars)
         res.render("result", templateVars);
       })
       .catch(err => {
