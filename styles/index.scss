@@ -32,14 +32,16 @@ body {
   a {
     font-size: 6vw;
     width: 100%;
-    color: #fff;
+    color: #C0C0C0;
     background-color: #1b1b1b;
     display: flex;
     justify-content: center;
   }
+
   a:hover {
     color: #fff;
     background-color: #1b1b1b;
+    text-decoration: none
   }
 
   a:active {

@@ -1,7 +1,7 @@
 
 body {
   width: 100%;
-  color: #fff;
+  color: #C0C0C0;
   background-color: #1b1b1b;
   font-family: Lato, Source Sans Pro;
   display: flex;
@@ -17,6 +17,10 @@ body {
 
   label.col-form-label {
     width: 100%;
+  }
+
+  div.form:hover label.col-form-label {
+    color: #fff;
   }
 
   input.form-control {
@@ -46,14 +50,19 @@ body {
 
     button.newPollSubmitButton {
       width: 100%;
-      background-color: #ffa31a;
+      color: #C0C0C0;
+      background-color: #1b1b1b;
       border: 0;
       margin-top: 10px;
+      font-weight: bold;
     }
 
     button:hover {
-      transition: background-color 5000s;
-      -webkit-text-fill-color: #fff !important;
+      color: #fff;
+      background-color: #ffa31a !important;
+
+      // transition: background-color 5000s;
+      // -webkit-text-fill-color: #fff !important;
     }
 
     button.newPollSubmitButton:focus {

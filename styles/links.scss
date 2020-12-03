@@ -1,6 +1,6 @@
 
 body {
-  color: #fff;
+  color: #C0C0C0;
   background-color: #1b1b1b;
   font-family: Lato, Source Sans Pro;
   display: flex;
@@ -24,8 +24,12 @@ body {
 
     a.new-poll-link {
       font-size: 6vw;
-      color: #fff;
+      color: #C0C0C0;
       background-color: #1b1b1b;
+    }
+    a.new-poll-link:hover {
+      color: #fff;
+      text-decoration: none;
     }
 
     a.new-poll-link:active {
@@ -47,12 +51,13 @@ body {
       word-wrap: break-word;
 
       a {
-        color: #fff;
+        color: #C0C0C0;
         background-color: #1b1b1b;
       }
       a:hover {
         color: #fff;
         background-color: #1b1b1b;
+        text-decoration: none;
       }
     }
 
@@ -63,7 +68,7 @@ body {
     button.linkspage-button {
       width: 100%;
       background-color:  #1b1b1b;
-      color: #fff;
+      color: #C0C0C0;
       border: 0;
       border-radius: 5px;
       box-shadow: 0 0 10px #9ecaed;
@@ -71,6 +76,7 @@ body {
     }
 
     button.linkspage-button:hover {
+      color: #fff;
       box-shadow: 0 0 10px #ffca7c;
     }
 
