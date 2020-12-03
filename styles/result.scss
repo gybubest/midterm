@@ -1,0 +1,77 @@
+// Style for result.ejs template
+
+main.result-container {
+    padding: 0.25em;
+    background-color: lightblue;
+
+    h1.question {
+      text-align: center;
+    }
+
+    h3.error-message {
+      text-align: center;
+    }
+
+    #item-0, #first-0 {
+      background-color: #00FF00;
+      border-style: none;
+    }
+    #item-1, #first-1 {
+      background-color: #d0ff00;
+      border-style: none;
+    }
+    #item-2, #first-2 {
+      background-color: #fffb00;
+      border-style: none;
+    }
+    #item-3, #first-3 {
+      background-color: #ff6600;
+      border-style: none;
+    }
+    #item-4, #first-4 {
+      background-color: #ff0000;
+      border-style: none;
+    }
+
+    #first-0 {
+      display: none;
+    }
+    #first-1 {
+      display: none;
+    }
+    #first-2 {
+      display: none;
+    }
+    #first-3 {
+      display: none;
+    }
+    #first-4 {
+      display: none;
+    }
+
+    div.list-group-container:hover #first-0 {
+      display: block;
+    }
+    div.list-group-container:hover #first-1 {
+      display: block;
+    }
+    div.list-group-container:hover #first-2 {
+      display: block;
+    }
+    div.list-group-container:hover #first-3 {
+      display: block;
+    }
+    div.list-group-container:hover #first-4 {
+      display: block;
+    }
+
+    a {
+      display: block;
+      width: 12em;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1em;
+    }
+}
+
+
