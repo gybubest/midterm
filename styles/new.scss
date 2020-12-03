@@ -1,14 +1,15 @@
 
 body {
-  width: 90%;
+  width: 100%;
   color: #fff;
   background-color: #1b1b1b;
   font-family: Lora, Source Sans Pro;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: center;
-  margin-left: 12%;
+  align-items: center;
   margin-top: 6%;
+  margin-bottom: 6%;
 
   form {
     width: 80%;
@@ -27,7 +28,7 @@ body {
     box-shadow: 0 0 10px #9ecaed;
   }
 
-  input.form-control:focus {
+  input.form-control:hover {
     box-shadow: 0 0 10px #ffca7c;
   }
 
@@ -50,6 +51,10 @@ body {
     background-color: #ffa31a;
     border: none;
     margin-top: 10px;
-    margin-bottom: 10%;
+  }
+  button:hover {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #fff !important;
   }
 }
+

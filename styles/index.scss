@@ -8,11 +8,28 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   header {
+    width: 80%;
     margin-top: 180px;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  main {
+    width: 80%;
+    display: flex;
+    justify-content: center;
   }
   a {
+    color: #fff;
+    background-color: #1b1b1b;
+    width: 220px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  a:hover {
     color: #fff;
     background-color: #1b1b1b;
   }
