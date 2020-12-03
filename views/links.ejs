@@ -26,17 +26,15 @@
     <header class="linkspage-title">
       <h1>Hope you had fun!</h1>
     </header>
+    <a class="new-poll-link" href="/new">Make a new poll</a>
     <main class="linkspage-container">
       <div id="item-to-copy">
         <p >Question: <%= question %></p>
-        <p>Share the poll with your friends: <a href="/<%= userLink %>">//localhost:8080/<%= userLink %></a></p>
-        <p>Check the poll results here: <a href="/my/<%= adminLink %>">//localhost:8080/my/<%= adminLink %></a></p>
+        <p>Share with your friends: <a href="/<%= userLink %>">//localhost:8080/<%= userLink %></a></p>
+        <p>Check the results: <a href="/my/<%= adminLink %>">//localhost:8080/my/<%= adminLink %></a></p>
       </div>
-      <button class="linkspage-button" onclick="copy('#item-to-copy')">
-        Copy to clipboard
-      </button>
-      <div>
-        <a href="/new"><button class="linkspage-button">Make another poll</button></a>
+      <div class="botton-link">
+      <button class="linkspage-button" onclick="copy('#item-to-copy')">Copy to clipboard</button>
       </div>
     </main>
   </body>

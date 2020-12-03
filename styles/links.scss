@@ -1,0 +1,64 @@
+
+body {
+  color: #fff;
+  background-color: #1b1b1b;
+  font-family: Lora, Source Sans Pro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  header {
+    font-size: 36px;
+    color: #ffa31a;
+    width: 80%;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  a.new-poll-link {
+    font-size: 24px;
+    color: #fff;
+    background-color: #1b1b1b;
+  }
+  a {
+    color: #fff;
+    background-color: #1b1b1b;
+  }
+  a:hover {
+    color: #fff;
+    background-color: #1b1b1b;
+  }
+
+  main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    line-height: 2;
+  }
+
+  div.botton-link {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button.linkspage-button {
+    width: 100%;
+    background-color: #ffa31a;
+    border: none;
+    margin-top: 10px;
+  }
+
+  // button:hover {
+  //   transition: background-color 5000s;
+  //   -webkit-text-fill-color: #fff !important;
+  // }
+
+}
