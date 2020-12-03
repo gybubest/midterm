@@ -54,10 +54,10 @@
       const numberOfOptions = "<%=poll.options.length%>";
 
       const colors = {
-        "2": ["green", "red"],
-        "3": ["green", "orange", "red"],
-        "4": ["green", "yellow", "orange", "red"],
-        "5": ["green", "yellow", "orange", "red", "brown"]
+        "2": ["lightgreen", "red"],
+        "3": ["lightgreen", "orange", "red"],
+        "4": ["lightgreen", "yellow", "orange", "red"],
+        "5": ["lightgreen", "yellow", "orange", "red", "brown"]
       }
 
       // validates input for text fields
@@ -122,7 +122,7 @@
               })
               .then( (res) => {
                 if (res === "Poll submitted successfully!") {
-                  window.location.assign("/");
+                  window.location.assign("/thanks");
                 }
               });
             }
