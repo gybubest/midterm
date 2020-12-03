@@ -80,22 +80,22 @@
       };
 
       $(document).ready( () => {
-          // sortable list
+
+        // sortable list
           $( "#sortable" ).sortable({
 
               axis:"y",
 
-              update: (e, ui) => {
+              update: () => {
           // gets item_id and index position
           // var element_id = ui.item.attr('id');
           // alert('id of Item moved = '+element_id+' new position = '+newIndex);
-                $(".option").each( (index) => {
+          // const index = ui.item.index();
+                $(".option").each( (index, option) => {
                   let color = colors[numberOfOptions][index]
                   console.log(color)
-                  $( this ).css({"color":`${color}`});
-
+                  $(option).css({"background-color":`${color}`});
                 });
-                // const index = ui.item.index();
 
               }
             });
