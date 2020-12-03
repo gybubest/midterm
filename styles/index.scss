@@ -1,6 +1,6 @@
 
 body {
-  color: #ffa31a;
+  color: yellow;
   background-color: #1b1b1b;
   font-family: Lato, Source Sans Pro;
   display: flex;
@@ -32,14 +32,14 @@ body {
   a {
     font-size: 6vw;
     width: 100%;
-    color: #C0C0C0;
+    color: #fff;
     background-color: #1b1b1b;
     display: flex;
     justify-content: center;
   }
 
   a:hover {
-    color: #fff;
+    color:  #9ecaed;
     background-color: #1b1b1b;
     text-decoration: none
   }

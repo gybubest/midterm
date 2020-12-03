@@ -22,6 +22,9 @@ body {
   div.form:hover label.col-form-label {
     color: #fff;
   }
+  div.form:hover label.form-check-label{
+    color: #fff;
+  }
 
   input.form-control {
     width: 100%;
@@ -58,11 +61,8 @@ body {
     }
 
     button:hover {
-      color: #fff;
-      background-color: #ffa31a !important;
-
-      // transition: background-color 5000s;
-      // -webkit-text-fill-color: #fff !important;
+      color: #1b1b1b;
+      background-color: yellow !important;
     }
 
     button.newPollSubmitButton:focus {

@@ -23,7 +23,7 @@
 
   </head>
   <body>
-    <form class="create-poll" method="POST" action="/">
+    <form class="create-poll" method="POST" action="/" autocomplete="off">
       <div class=form>
         <label for="inputNewQuestion" class="col-sm-2 col-form-label">Question *</label>
         <input type="text" class="form-control form-control-lg" name="inputNewQuestion">
@@ -32,7 +32,7 @@
         <label for="inputOpt1" class="col-sm-2 col-form-label">Option 1 *</label>
         <input type="text" class="form-control" name="inputOpt1">
       </div>
-      <div class=form></div>
+      <div class=form>
         <label for="inputOpt1Descript" class="col-sm-2 col-form-label">Description</label>
         <input type="text" class="form-control form-control-sm" name="inputOpt1Descript">
       </div>
@@ -72,7 +72,7 @@
         <input class="form-check-input" type="checkbox" value="anonymous" name="anonymousCheck">
         <label class="form-check-label" for="anonymousCheck">Anonymous poll?</label>
       </div>
-      <div class="form emailValidation">
+      <div class="form emailValidation" autocomplete="on">
         <label for="inputEmail" class="col-sm-2 col-form-label">Enter your email *</label>
         <input type="email" class="form-control form-control-lg" id="inputEmail" name="inputEmail">
       </div>
