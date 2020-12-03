@@ -19,7 +19,7 @@
 
   <body>
     <header class="homepage-title">
-      <h1> superfun poll generator </h1>
+      <h1>superfun poll generator</h1>
       <h2 id="question"><%= poll.question %></h2>
     </header>
     <main class="homepage-container">
@@ -33,8 +33,8 @@
               <span class="option-description"><%= option.description %></span>
             </li>
           <% } %>
-          </ol>
-          <input id="name" type="text" placeholder="Your Name" style=<%(poll.anonymous? "display:none" : "")%>>
+        </ol>
+        <input id="name" type="text" placeholder="Your Name" style=<%(poll.anonymous? "display:none" : "")%>>
 
         <p id="error-msg" style="display: none">
           The poll creator has requested your name! (255 chars max)
@@ -81,6 +81,9 @@
       };
 
       $(document).ready( () => {
+
+        if (anonymous) { $("#name").css({"display": "none"})
+      }
 
         // sortable list
           $( "#sortable" ).sortable({

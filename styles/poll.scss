@@ -7,7 +7,9 @@ body {
   align-items: center;
 
   header {
-
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
   h1 {
     color: #244751;
@@ -15,6 +17,7 @@ body {
   }
   h2 {
     font-family: 'Kalam', cursive;
+
   }
 
 
@@ -24,35 +27,41 @@ body {
     width: 90%;
     max-width: 900px;
     height: 90%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     ol {
 
-
-
-      .option {
+      li {
+        list-style-position: inside;
         padding: 20px;
-        border: 7px solid black;
+        border: 5px dashed black;
         margin: 1em;
-        height: 100px;
+        flex-grow: 1;
         box-shadow: 2px 3px 1px 1px grey;
         background-color: grey 0.4;
+        .option-title {
 
-        &:hover {
-          height: 200px;
 
-          .option-description {
-            display: block;
-
-            }
         }
 
         .option-description {
           display: none;
-
-
-
+          font-size: 1.5em;
         }
+          &:hover {
+            height: 200%;
+
+            .option-description {
+              display: block;
+            }
+          }
+
       }
 
+    }
+    input {
+      margin: 1em;
     }
 
   }
