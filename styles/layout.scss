@@ -1,11 +1,30 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  // background-color: #EEE;
+  width: 100%;
+  color: #fff;
+  background-color: #1b1b1b;
+  font-family: Lora, Source Sans Pro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: 6%;
 
-  h1 {
-    color: #244751;
+  // h1 {
+  //   color: #244751;
+  // }
+
+  a {
+    font-size: 2em;
+    width: 100%;
+    color: #fff;
+    background-color: #1b1b1b;
+    display: flex;
+    justify-content: center;
   }
+
 
 }
 

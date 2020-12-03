@@ -1,8 +1,8 @@
 // Style for result.ejs template
 
 main.result-container {
-    padding: 0.25em;
-    background-color: lightblue;
+    // padding: 0.25em;
+    // background-color: lightblue;
 
     h1.question {
       text-align: center;
@@ -12,30 +12,41 @@ main.result-container {
       text-align: center;
     }
 
+    div.list-group-container {
+      border: 7px solid white;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
     #item-0, #first-0 {
       // background-color: #00FF00;
-      // border-style: none;
-      border: 7px solid;
+      border-style: none;
+      // border: 7px solid;
+      background-color: inherit;
     }
     #item-1, #first-1 {
       // background-color: #d0ff00;
-      // border-style: none;
-      border: 7px solid;
+      border-style: none;
+      // border: 7px solid;
+      background-color: inherit;
     }
     #item-2, #first-2 {
       // background-color: #fffb00;
-      // border-style: none;
-      border: 7px solid;
+      border-style: none;
+      // border: 7px solid;
+      background-color: inherit;
     }
     #item-3, #first-3 {
       // background-color: #ff6600;
-      // border-style: none;
-      border: 7px solid;
+      border-style: none;
+      // border: 7px solid;
+      background-color: inherit;
     }
     #item-4, #first-4 {
       // background-color: #ff0000;
-      // border-style: none;
-      border: 7px solid;
+      border-style: none;
+      // border: 7px solid;
+      background-color: inherit;
     }
 
     #first-0 {
@@ -75,13 +86,13 @@ main.result-container {
       border-top: none;
     }
 
-    a {
-      display: block;
-      width: 12em;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 1em;
-    }
+    // a {
+    //   display: block;
+    //   width: 12em;
+    //   margin-left: auto;
+    //   margin-right: auto;
+    //   margin-bottom: 1em;
+    // }
 }
 
 
