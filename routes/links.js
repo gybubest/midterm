@@ -6,7 +6,6 @@ module.exports = (db) => {
     let templateVars = {
       adminLink: req.params.id,
       userLink: '',
-      question: ''
     };
 
     db.query(`
@@ -15,7 +14,6 @@ module.exports = (db) => {
     `, [templateVars.adminLink])
     .then((result) => {
       templateVars.userLink = result.rows[0]['user_link'];
-      templateVars.question = result.rows[0]['question'];
       res.render("links", templateVars);
     })
     .catch(e => {
