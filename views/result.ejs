@@ -15,29 +15,31 @@
   </head>
   <body>
     <main class="result-container">
-      <h1 class="question"><%= question %></h1>
-      <% if (results['error']) { %>
-        <h3 class="error-message">Sorry! no one has responded to your poll yet :(</h3>
+      <% if (question['error']) { %>
+        <h1 class="question">Sorry! that poll does not exists.</h1>
       <% } else { %>
-      <ul class="list-group">
-        <% for (item in results) { %>
-          <div class="list-group-container">
-            <!-- results[item][0]: option title | results[item][1]: sum(weighting) | results[item][2]: option_id -->
-            <li class="list-group-item" id="item-<%= [item][0] %>" style="width:<%= results[item][1] %>%;">
-              <%= results[item][0] %>
-            </li>
-            <!-- first_option[option_id] contains and array of voter_names who picked that option_id as their first choice -->
-            <li class="first-choice list-group-item" id="first-<%= [item][0] %>" style="width:<%= results[item][1] %>%;">
-              <strong> ↳ Top choice for: <%= firstOption[results[item][2]] %></strong>
-            </li>
-          </div>
-            </li>
-          </div>
-            </li>
-          </div>
-        <% } %>
+        <h1 class="question"><%= question %></h1>
       <% } %>
-      </ul>
+      <% if (results['error'] && !question['error']) { %>
+        <h3 class="error-message">Sorry! no one has responded to your poll yet :(</h3>
+        <% } else if (!question['error']) { %>
+          <ul class="list-group">
+          <% for (item in results) { %>
+            <div class="list-group-container">
+            <!-- results[item][0]: option title | results[item][1]: sum(weighting) | results[item][2]: option_id | results[item][3]: color -->
+              <li class="list-group-item" id="item-<%= [item][0] %>" style="width:<%= results[item][1] %>%;border-color:<%= results[item][3] %>;">
+              <%= results[item][0] %>
+              </li>
+            <!-- first_option[option_id] contains and array of voter_names who picked that option_id as their first choice -->
+            <% if (firstOption[results[item][2]]) { %>
+              <li class="first-choice list-group-item" id="first-<%= [item][0] %>" style="width:<%= results[item][1] %>%;border-color:<%= results[item][3] %>;">
+              <strong> ↳ Top choice for: <%= firstOption[results[item][2]] %></strong>
+              </li>
+            <% } %>
+            </div>
+            <% } %>
+          </ul>
+        <% } %>
       <a class="btn btn-primary btn-lg" href="/new" role="button" >Make another poll</a>
     </main>
   </body>

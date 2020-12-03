@@ -13,24 +13,29 @@ main.result-container {
     }
 
     #item-0, #first-0 {
-      background-color: #00FF00;
-      border-style: none;
+      // background-color: #00FF00;
+      // border-style: none;
+      border: 7px solid;
     }
     #item-1, #first-1 {
-      background-color: #d0ff00;
-      border-style: none;
+      // background-color: #d0ff00;
+      // border-style: none;
+      border: 7px solid;
     }
     #item-2, #first-2 {
-      background-color: #fffb00;
-      border-style: none;
+      // background-color: #fffb00;
+      // border-style: none;
+      border: 7px solid;
     }
     #item-3, #first-3 {
-      background-color: #ff6600;
-      border-style: none;
+      // background-color: #ff6600;
+      // border-style: none;
+      border: 7px solid;
     }
     #item-4, #first-4 {
-      background-color: #ff0000;
-      border-style: none;
+      // background-color: #ff0000;
+      // border-style: none;
+      border: 7px solid;
     }
 
     #first-0 {
@@ -51,18 +56,23 @@ main.result-container {
 
     div.list-group-container:hover #first-0 {
       display: block;
+      border-top: none;
     }
     div.list-group-container:hover #first-1 {
       display: block;
+      border-top: none;
     }
     div.list-group-container:hover #first-2 {
       display: block;
+      border-top: none;
     }
     div.list-group-container:hover #first-3 {
       display: block;
+      border-top: none;
     }
     div.list-group-container:hover #first-4 {
       display: block;
+      border-top: none;
     }
 
     a {

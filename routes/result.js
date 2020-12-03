@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
-const { getQuestion, getOptionsWithPercentage, getAllVotersFirstOption } = require('../lib/data-helpers');
+const { getQuestion, getOptionsWithPercentage, getAllVotersFirstOption, getColorsForNumberOfOptions } = require('../lib/data-helpers');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -10,6 +10,9 @@ module.exports = (db) => {
       getAllVotersFirstOption(db, req.params.id)
     ])
       .then(([questionQuery, optionsQuery, votersFirstOption]) => {
+        if(!optionsQuery['error']) {
+          optionsQuery = getColorsForNumberOfOptions(optionsQuery);
+        }
         const templateVars = { question: questionQuery, results: optionsQuery, firstOption: votersFirstOption };
         res.render("result", templateVars);
       })
