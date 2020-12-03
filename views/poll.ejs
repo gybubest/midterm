@@ -12,8 +12,35 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Internal CSS -->
-    <link rel="stylesheet" href="styles/polls.css">
+    <link rel="stylesheet" href="styles/poll.css">
 
+
+  </head>
+
+  <body>
+    <header class="homepage-title">
+      <h1 id="question"><%= poll.question %></h1>
+    </header>
+    <main class="homepage-container">
+
+        <ol id="sortable">
+      <!-- Generates options from supplied array -->
+          <% for(let option of poll.options) { %>
+            <li id="item_<%= option.id %>" class="option">
+              <span class="option-title"><strong><%= option.title %></strong></span>
+              <br>
+              <span class="option-description"><%= option.description %></span>
+            </li>
+          <% } %>
+          </ol>
+          <input id="name" type="text" placeholder="Your Name" style=<%(poll.anonymous? "display:none" : "")%>>
+
+        <p id="error-msg" style="display: none">
+          The poll creator has requested your name! (255 chars max)
+        </p>
+      <button id="submitOrder"><h1>Submit</h1></button>
+    </main>
+  </body>
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -23,6 +50,14 @@
       const userLink = "<%=poll.user_link%>";
       const pollID = "<%=poll.poll_id%>";
       const anonymous = ("<%=poll.anonymous%>" === "false"? false : true);
+      const numberOfOptions = "<%=poll.options.length%>";
+
+      const colors = {
+        "2": ["green", "red"],
+        "3": ["green", "orange", "red"],
+        "4": ["green", "yellow", "orange", "red"],
+        "5": ["green", "yellow", "orange", "red", "brown"]
+      }
 
       // validates input for text fields
       const validateText = (str) => {
@@ -46,10 +81,26 @@
 
       $(document).ready( () => {
           // sortable list
-          $( function() {
-            $( "#sortable" ).sortable();
+          $( "#sortable" ).sortable({
+
+              axis:"y",
+
+              update: (e, ui) => {
+          // gets item_id and index position
+          // var element_id = ui.item.attr('id');
+          // alert('id of Item moved = '+element_id+' new position = '+newIndex);
+                $(".option").each( (index) => {
+                  let color = colors[numberOfOptions][index]
+                  console.log(color)
+                  $( this ).css({"color":`${color}`});
+
+                });
+                // const index = ui.item.index();
+
+              }
+            });
             $( "#sortable" ).disableSelection();
-          });
+
 
           // submission logic
           $( "#submitOrder" ).click( () => {
@@ -77,33 +128,6 @@
           })
       });
     </script>
-
-  </head>
-
-  <body>
-    <header class="homepage-title">
-      <h1 id="question"><%= poll.question %></h1>
-    </header>
-    <main class="homepage-container">
-
-        <ul id="sortable">
-      <!-- Generates options from supplied array -->
-          <% for(let option of poll.options) { %>
-            <li id="item_<%= option.id %>"class="option">
-              <span style="font-family: 'Kalam', cursive;"class="option-title"><strong><%= option.title %></strong></span>
-              <br>
-              <span class="option-description"><%= option.description %></span>
-            </li>
-          <% } %>
-          </ul>
-          <input id="name" type="text" placeholder="Your Name">
-
-        <p id="error-msg" style="display: none">
-          The poll creator has requested your name! (255 chars max)
-        </p>
-      <button id="submitOrder">Submit</button>
-    </main>
-  </body>
 
 
 

@@ -1,13 +1,50 @@
 body {
-  background-color: rgba(143, 165, 182, 0.877);
-
+  background-color: #ebf0a3;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h1 {
     color: #244751;
+    font-family: 'Luckiest Guy', cursive;
   }
 
   main {
     padding: 0.25em;
-    background-color: lightblue;
+    font-family: 'Kalam', cursive;
+    width: 90%;
+    max-width: 900px;
+    height: 90%;
+    ol {
+      // background-image: linear-gradient(green, yellow, red);
+
+
+      .option {
+
+        border: 7px solid black;
+        margin: 1em;
+        height: 100px;
+        box-shadow: 2px 3px 1px 1px grey;
+        &:hover {
+          height: 120px;
+
+          .option-description {
+            display: block;
+
+            }
+        }
+
+        .option-description {
+          display: none;
+
+
+
+        }
+      }
+
+    }
+
   }
 
 }
