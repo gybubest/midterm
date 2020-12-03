@@ -7,29 +7,26 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20%;
 
   header {
-    font-size: 36px;
-    color: #ffa31a;
     width: 80%;
-    margin-top: 100px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-  }
+    align-items: center;
 
-  a.new-poll-link {
-    font-size: 24px;
-    color: #fff;
-    background-color: #1b1b1b;
-  }
-  a {
-    color: #fff;
-    background-color: #1b1b1b;
-  }
-  a:hover {
-    color: #fff;
-    background-color: #1b1b1b;
+    h1 {
+      font-size: 8vw;
+      color: #ffa31a;
+    }
+
+    a.new-poll-link {
+      font-size: 6vw;
+      color: #fff;
+      background-color: #1b1b1b;
+    }
   }
 
   main {
@@ -40,25 +37,58 @@ body {
     align-items: center;
     margin-top: 100px;
     line-height: 2;
+
+    div.links {
+      width: 100%;
+      word-wrap: break-word;
+
+      a {
+        color: #fff;
+        background-color: #1b1b1b;
+      }
+      a:hover {
+        color: #fff;
+        background-color: #1b1b1b;
+      }
+    }
+
+    div.botton {
+      width: 100%;
+    }
+
+    button.linkspage-button {
+      width: 100%;
+      background-color: #ffa31a;
+      border: none;
+      margin-top: 10px;
+    }
+
   }
 
-  div.botton-link {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
 
-  button.linkspage-button {
-    width: 100%;
-    background-color: #ffa31a;
-    border: none;
-    margin-top: 10px;
-  }
+}
 
-  // button:hover {
-  //   transition: background-color 5000s;
-  //   -webkit-text-fill-color: #fff !important;
-  // }
+@media only screen and (min-width: 420px) {
+  body {
+    margin-top: 150px;
+
+    h1.linkspage-title {
+      font-size: 36px;
+    }
+    header a.new-poll-link {
+      font-size: 24px;
+    }
+
+    main div.links {
+      width: 390px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    main div.botton {
+      width: 390px;
+    }
+
+  }
 
 }

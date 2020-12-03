@@ -24,16 +24,16 @@
   </head>
   <body>
     <header class="linkspage-title">
-      <h1>Hope you had fun!</h1>
+      <h1 class="linkspage-title">Hope you had fun!</h1>
+      <a class="new-poll-link" href="/new">Make a new poll</a>
     </header>
-    <a class="new-poll-link" href="/new">Make a new poll</a>
     <main class="linkspage-container">
-      <div id="item-to-copy">
-        <p >Question: <%= question %></p>
+      <div class="links" id="item-to-copy">
+        <!-- <p >Question: <%= question %></p> -->
         <p>Share with your friends: <a href="/<%= userLink %>">//localhost:8080/<%= userLink %></a></p>
         <p>Check the results: <a href="/my/<%= adminLink %>">//localhost:8080/my/<%= adminLink %></a></p>
       </div>
-      <div class="botton-link">
+      <div class="botton">
       <button class="linkspage-button" onclick="copy('#item-to-copy')">Copy to clipboard</button>
       </div>
     </main>
