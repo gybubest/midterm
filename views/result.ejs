@@ -21,11 +21,23 @@
       <% } else { %>
       <ul class="list-group">
         <% for (item in results) { %>
-          <!-- results[item][0]: option title | results[item][1]: sum(weighting) -->
-          <li class="list-group-item" id="item-<%= [item][0] %>" style="width:<%= results[item][1] %>%;"><%= results[item][0] %> == Percent of max points: <%= results[item][1] %> ==</li>
+          <div class="list-group-container">
+            <!-- results[item][0]: option title | results[item][1]: sum(weighting) | results[item][2]: option_id -->
+            <li class="list-group-item" id="item-<%= [item][0] %>" style="width:<%= results[item][1] %>%;">
+              <%= results[item][0] %>
+            </li>
+            <!-- first_option[option_id] contains and array of voter_names who picked that option_id as their first choice -->
+            <li class="first-choice list-group-item" id="first-<%= [item][0] %>" style="width:<%= results[item][1] %>%;">
+              <strong> ↳ Top choice for: <%= firstOption[results[item][2]] %></strong>
+            </li>
+          </div>
+            </li>
+          </div>
+            </li>
+          </div>
         <% } %>
       <% } %>
       </ul>
-      <a href="/new"><button type="button" class="btn btn-primary btn-lg">Make another poll</button></a>
+      <a class="btn btn-primary btn-lg" href="/new" role="button" >Make another poll</a>
     </main>
   </body>
