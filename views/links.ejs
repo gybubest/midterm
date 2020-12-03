@@ -7,12 +7,16 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
 
     <!-- External JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
     <!-- App CSS -->
-    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/links.css" type="text/css" />
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -20,19 +24,17 @@
   </head>
   <body>
     <header class="linkspage-title">
-      <h1>Hope you had fun!</h1>
+      <h1 class="linkspage-title">Hope you had fun!</h1>
+      <a class="new-poll-link" href="/new">Make a new poll</a>
     </header>
     <main class="linkspage-container">
-      <div id="item-to-copy">
-        <p >Question: <%= question %></p>
-        <p>Share the poll with your friends: <a href="/<%= userLink %>">//localhost:8080/<%= userLink %></a></p>
-        <p>Check the poll results here: <a href="/my/<%= adminLink %>">//localhost:8080/my/<%= adminLink %></a></p>
+      <div class="links" id="item-to-copy">
+        <!-- <p >Question: <%= question %></p> -->
+        <p>Share with your friends: <a href="/<%= userLink %>">//localhost:8080/<%= userLink %></a></p>
+        <p>Check the results: <a href="/my/<%= adminLink %>">//localhost:8080/my/<%= adminLink %></a></p>
       </div>
-      <button class="linkspage-button" onclick="copy('#item-to-copy')">
-        Copy to clipboard
-      </button>
-      <div>
-        <a href="/new"><button class="linkspage-button">Make another poll</button></a>
+      <div class="botton">
+      <button class="linkspage-button" onclick="copy('#item-to-copy')">Copy to clipboard</button>
       </div>
     </main>
   </body>
