@@ -4,10 +4,44 @@
     <!-- Meta Information -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superfun Polls - Poll Page</title>
+    <!-- External fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="styles/poll.css">
+
+
+  </head>
+
+  <body>
+    <header class="homepage-title">
+      <h1> superfun poll generator </h1>
+      <h2 id="question"><%= poll.question %></h2>
+    </header>
+    <main class="homepage-container">
+
+        <ol id="sortable">
+      <!-- Generates options from supplied array -->
+          <% for(let option of poll.options) { %>
+            <li id="item_<%= option.id %>" class="option">
+              <span class="option-title"><h2><%= option.title %></h2></span>
+              <br>
+              <span class="option-description"><%= option.description %></span>
+            </li>
+          <% } %>
+          </ol>
+          <input id="name" type="text" placeholder="Your Name" style=<%(poll.anonymous? "display:none" : "")%>>
+
+        <p id="error-msg" style="display: none">
+          The poll creator has requested your name! (255 chars max)
+        </p>
+      <button id="submitOrder"><h1>Submit</h1></button>
+    </main>
+  </body>
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -17,6 +51,14 @@
       const userLink = "<%=poll.user_link%>";
       const pollID = "<%=poll.poll_id%>";
       const anonymous = ("<%=poll.anonymous%>" === "false"? false : true);
+      const numberOfOptions = "<%=poll.options.length%>";
+
+      const colors = {
+        "2": ["green", "red"],
+        "3": ["green", "orange", "red"],
+        "4": ["green", "yellow", "orange", "red"],
+        "5": ["green", "yellow", "orange", "red", "brown"]
+      }
 
       // validates input for text fields
       const validateText = (str) => {
@@ -39,11 +81,24 @@
       };
 
       $(document).ready( () => {
-          // sortable list
-          $( function() {
-            $( "#sortable" ).sortable();
+
+        // sortable list
+          $( "#sortable" ).sortable({
+
+              axis:"y",
+
+              update: () => {
+
+                $(".option").each( (index, option) => {
+                  let color = colors[numberOfOptions][index]
+                  console.log(color)
+                  $(option).css({"border-color":`${color}`});
+                });
+
+              }
+            });
             $( "#sortable" ).disableSelection();
-          });
+
 
           // submission logic
           $( "#submitOrder" ).click( () => {
@@ -71,29 +126,6 @@
           })
       });
     </script>
-
-  </head>
-
-  <body>
-    <header class="homepage-title">
-      <h1 id="question"><%= poll.question %></h1>
-    </header>
-    <main class="homepage-container">
-      <form id="poll">
-        <ul id="sortable">
-
-          <% for(let option of poll.options) { %>
-          <li id="item_<%= option.id %>"class="ui-state-default option"><span class="ui-icon ui-icon-arrowthick-2-n-s"><%= option.title %></span></li>
-          <% } %>
-          </ul>
-          <input id="name" type="text" placeholder="Your Name">
-        </form>
-        <p id="error-msg" style="display: none">
-          The poll creator has requested your name! (255 chars max)
-        </p>
-      <button id="submitOrder">Submit</button>
-    </main>
-  </body>
 
 
 
