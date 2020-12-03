@@ -6,93 +6,78 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
 
     <!-- External JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/new.css" type="text/css" />
+
     <!-- App JS -->
-    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
     <script type="text/javascript" src="/scripts/client.js"></script>
 
   </head>
   <body>
-    <header class="newPoll-title">
-      <h1>Decisions Made Easy</h1>
-    </header>
     <form class="create-poll" method="POST" action="/">
-      <div class="form-group row">
-        <label for="inputNewQuestion" class="col-sm-2 col-form-label">Question</label>
-        <div class="form-inputNewQuestion">
-          <input type="text" class="form-control form-control-lg" name="inputNewQuestion">
-        </div>
+      <div class=form>
+        <label for="inputNewQuestion" class="col-sm-2 col-form-label">Question *</label>
+        <input type="text" class="form-control form-control-lg" name="inputNewQuestion">
       </div>
-      <div class="form-group row">
-        <label for="inputOpt1" class="col-sm-2 col-form-label">Option 1</label>
-        <div class="form-inputOpt1">
-          <input type="text" class="form-control" name="inputOpt1">
-        </div>
+      <div class=form>
+        <label for="inputOpt1" class="col-sm-2 col-form-label">Option 1 *</label>
+        <input type="text" class="form-control" name="inputOpt1">
+      </div>
+      <div class=form></div>
         <label for="inputOpt1Descript" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" name="inputOpt1Descript">
-        </div>
+        <input type="text" class="form-control form-control-sm" name="inputOpt1Descript">
       </div>
-      <div class="form-group row">
-        <label for="inputOpt2" class="col-sm-2 col-form-label">Option 2</label>
-        <div class="">
-          <input type="text" class="form-control" name="inputOpt2">
-        </div>
+      <div class=form>
+        <label for="inputOpt2" class="col-sm-2 col-form-label">Option 2 *</label>
+        <input type="text" class="form-control" name="inputOpt2">
+      </div>
+      <div class=form>
         <label for="inputOpt2Descript" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" name="inputOpt2Descript">
-        </div>
+        <input type="text" class="form-control form-control-sm" name="inputOpt2Descript">
       </div>
-      <div class="form-group row">
+      <div class=form>
         <label for="inputOpt3" class="col-sm-2 col-form-label">Option 3</label>
-        <div class="">
-          <input type="text" class="form-control" name="inputOpt3">
-        </div>
+        <input type="text" class="form-control" name="inputOpt3">
+      </div>
+      <div class=form>
         <label for="inputOpt3Descript" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" name="inputOpt3Descript">
-        </div>
+        <input type="text" class="form-control form-control-sm" name="inputOpt3Descript">
       </div>
-      <div class="form-group row">
+      <div class=form>
         <label for="inputOpt4" class="col-sm-2 col-form-label">Option 4</label>
-        <div class="">
-          <input type="text" class="form-control" name="inputOpt4">
-        </div>
+        <input type="text" class="form-control" name="inputOpt4">
+      </div>
+      <div class=form>
         <label for="inputOpt4Descript" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" name="inputOpt4Descript">
-        </div>
+        <input type="text" class="form-control form-control-sm" name="inputOpt4Descript">
       </div>
-      <div class="form-group row">
+      <div class=form>
         <label for="inputOpt5" class="col-sm-2 col-form-label">Option 5</label>
-        <div class="">
-          <input type="text" class="form-control" name="inputOpt5">
-        </div>
+        <input type="text" class="form-control" name="inputOpt5">
+      </div>
+      <div class=form>
         <label for="inputOptio52Descript" class="col-sm-2 col-form-label">Description</label>
-        <div class="">
-          <input type="text" class="form-control form-control-sm" name="inputOpt5Descript">
-        </div>
+        <input type="text" class="form-control form-control-sm" name="inputOpt5Descript">
       </div>
-      <div class="form-group row">
+      <div class=form>
         <input class="form-check-input" type="checkbox" value="anonymous" name="anonymousCheck">
-        <label class="form-check-label" for="anonymousCheck">
-          Anonymous poll?
-        </label>
+        <label class="form-check-label" for="anonymousCheck">Anonymous poll?</label>
       </div>
-      <div class="form-group row emailValidation">
-        <label for="inputEmail" class="col-sm-2 col-form-label">Enter your email</label>
-        <div class="">
-          <input type="email" class="form-control form-control-lg" id="inputEmail" name="inputEmail">
-        </div>
+      <div class="form emailValidation">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Enter your email *</label>
+        <input type="email" class="form-control form-control-lg" id="inputEmail" name="inputEmail">
       </div>
-      <div class="form-group row">
-        <div class="col-sm-10">
-          <button type="submit" class="btn btn-primary newPollSubmitButton" data-toggle="tooltip" disabled="disabled">Submit</button>
-        </div>
+      <div class="form-btn">
+        <button type="submit" class="btn btn-primary newPollSubmitButton" data-toggle="tooltip" disabled="disabled">Submit</button>
       </div>
     </form>
   </body>

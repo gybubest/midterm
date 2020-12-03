@@ -1,0 +1,46 @@
+
+body {
+  width: 90%;
+  color: #fff;
+  background-color: #1b1b1b;
+  font-family: Lora, Source Sans Pro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 12%;
+  margin-top: 6%;
+
+  form {
+    width: 80%;
+    line-height: 4;
+  }
+
+  label.col-form-label {
+    width: 100%;
+  }
+
+  input.form-control {
+    width: 100%;
+    background-color: #1b1b1b;
+    color: #fff;
+    border: 0;
+    box-shadow: 0 0 10px #9ecaed;
+  }
+
+  input.form-control:focus {
+    box-shadow: 0 0 10px #ffca7c;
+  }
+
+  div.form-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button.newPollSubmitButton {
+    width: 100%;
+    background-color: #ffa31a;
+    border: none;
+    margin-bottom: 10%;
+  }
+}
