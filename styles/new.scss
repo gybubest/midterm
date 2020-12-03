@@ -1,9 +1,9 @@
 
 body {
   width: 100%;
-  color: #fff;
+  color: #C0C0C0;
   background-color: #1b1b1b;
-  font-family: Lora, Source Sans Pro;
+  font-family: Lato, Source Sans Pro;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,13 @@ body {
 
   label.col-form-label {
     width: 100%;
+  }
+
+  div.form:hover label.col-form-label {
+    color: #fff;
+  }
+  div.form:hover label.form-check-label{
+    color: #fff;
   }
 
   input.form-control {
@@ -43,16 +50,30 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    button.newPollSubmitButton {
+      width: 100%;
+      color: #C0C0C0;
+      background-color: #1b1b1b;
+      border: 0;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      color: #1b1b1b;
+      background-color: yellow !important;
+    }
+
+    button.newPollSubmitButton:focus {
+      outline: 0 !important;
+    }
+
+    button.newPollSubmitButton:active {
+      transform: translateY(2px);
+    }
   }
 
-  button.newPollSubmitButton {
-    width: 100%;
-    background-color: #ffa31a;
-    border: none;
-    margin-top: 10px;
-  }
-  button:hover {
-    transition: background-color 5000s;
-    -webkit-text-fill-color: #fff !important;
-  }
+
+
 }
