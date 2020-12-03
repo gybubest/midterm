@@ -58,11 +58,17 @@ body {
 
     button.linkspage-button {
       width: 100%;
-      background-color: #ffa31a;
-      border: none;
+      background-color:  #1b1b1b;
+      color: #fff;
+      border: 0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #9ecaed;
       margin-top: 10px;
     }
 
+    button.linkspage-button:hover {
+      box-shadow: 0 0 10px #ffca7c;
+    }
   }
 
 
