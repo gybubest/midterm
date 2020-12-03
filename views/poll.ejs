@@ -19,7 +19,8 @@
 
   <body>
     <header class="homepage-title">
-      <h1 id="question"><%= poll.question %></h1>
+      <h1> superfun poll generator </h1>
+      <h2 id="question"><%= poll.question %></h2>
     </header>
     <main class="homepage-container">
 
@@ -27,7 +28,7 @@
       <!-- Generates options from supplied array -->
           <% for(let option of poll.options) { %>
             <li id="item_<%= option.id %>" class="option">
-              <span class="option-title"><strong><%= option.title %></strong></span>
+              <span class="option-title"><h2><%= option.title %></h2></span>
               <br>
               <span class="option-description"><%= option.description %></span>
             </li>
@@ -87,14 +88,11 @@
               axis:"y",
 
               update: () => {
-          // gets item_id and index position
-          // var element_id = ui.item.attr('id');
-          // alert('id of Item moved = '+element_id+' new position = '+newIndex);
-          // const index = ui.item.index();
+
                 $(".option").each( (index, option) => {
                   let color = colors[numberOfOptions][index]
                   console.log(color)
-                  $(option).css({"background-color":`${color}`});
+                  $(option).css({"border-color":`${color}`});
                 });
 
               }
