@@ -7,12 +7,20 @@ body {
   background-color: #1b1b1b;
   font-family: Lora, Source Sans Pro;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 6%;
   margin-bottom: 6%;
 
-  // h1 {
+  header {
+    width: 80%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    // font-family: inherit;
+    color: #ffa31a;
+  }
   //   color: #244751;
   // }
 
@@ -23,6 +31,19 @@ body {
     background-color: #1b1b1b;
     display: flex;
     justify-content: center;
+  }
+
+  @media only screen and (min-width: 420px) {
+    body {
+      margin-top: 150px;
+      h1 {
+        font-size: 36px;
+      }
+      a {
+        font-size: 24px;
+      }
+    }
+
   }
 
 

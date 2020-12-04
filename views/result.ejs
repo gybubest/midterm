@@ -14,6 +14,9 @@
     <title>Results</title>
   </head>
   <body>
+    <header class="homepage-title">
+      <h1>Superfun Poll App</h1>
+    </header>
     <main class="result-container">
       <% if (question['error']) { %>
         <h1 class="question">Sorry! that poll does not exists.</h1>
@@ -25,7 +28,7 @@
         <% } else if (!question['error']) { %>
           <ul class="list-group">
           <% for (item in results) { %>
-            <div class="list-group-container" style="width:<%= results[item][4] %>%;border-color:<%= results[item][3] %>;">
+            <div class="list-group-container" style="width:<%= results[item][4] %>%;border-color:<%= results[item][3] %>;box-shadow: 0 0 15px <%= results[item][3] %>;">
             <!-- results[item][0]: option title | results[item][1]: percentage of borda points | results[item][2]: option_id | results[item][3]: color -->
               <li class="list-group-item" id="item-<%= [item][0] %>">(<%= results[item][1] %>%) - <%= results[item][0] %>
               </li>

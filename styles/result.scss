@@ -1,8 +1,7 @@
 // Style for result.ejs template
 
 main.result-container {
-    // padding: 0.25em;
-    // background-color: lightblue;
+    font-size: 1.25em;
 
     h1.question {
       text-align: center;
@@ -14,85 +13,28 @@ main.result-container {
 
     div.list-group-container {
       border: 7px solid white;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin: 5%;
+      box-shadow: 0 0 10px #9ecaed;
     }
 
-    #item-0, #first-0 {
-      // background-color: #00FF00;
+    #item-0, #item-1, #item-2, #item-3, #item-4 {
       border-style: none;
-      // border: 7px solid;
-      background-color: inherit;
-    }
-    #item-1, #first-1 {
-      // background-color: #d0ff00;
-      border-style: none;
-      // border: 7px solid;
-      background-color: inherit;
-    }
-    #item-2, #first-2 {
-      // background-color: #fffb00;
-      border-style: none;
-      // border: 7px solid;
-      background-color: inherit;
-    }
-    #item-3, #first-3 {
-      // background-color: #ff6600;
-      border-style: none;
-      // border: 7px solid;
-      background-color: inherit;
-    }
-    #item-4, #first-4 {
-      // background-color: #ff0000;
-      border-style: none;
-      // border: 7px solid;
       background-color: inherit;
     }
 
-    #first-0 {
+    #first-0, #first-1, #first-2, #first-3, #first-4 {
       display: none;
-    }
-    #first-1 {
-      display: none;
-    }
-    #first-2 {
-      display: none;
-    }
-    #first-3 {
-      display: none;
-    }
-    #first-4 {
-      display: none;
+      border-style: none;
+      background-color: inherit;
+
     }
 
-    div.list-group-container:hover #first-0 {
-      display: block;
-      border-top: none;
+    div.list-group-container:hover {
+      #first-0,  #first-1, #first-2, #first-3, #first-4  {
+        display: block;
+        border-top: none;
+      }
     }
-    div.list-group-container:hover #first-1 {
-      display: block;
-      border-top: none;
-    }
-    div.list-group-container:hover #first-2 {
-      display: block;
-      border-top: none;
-    }
-    div.list-group-container:hover #first-3 {
-      display: block;
-      border-top: none;
-    }
-    div.list-group-container:hover #first-4 {
-      display: block;
-      border-top: none;
-    }
-
-    // a {
-    //   display: block;
-    //   width: 12em;
-    //   margin-left: auto;
-    //   margin-right: auto;
-    //   margin-bottom: 1em;
-    // }
 }
 
 
