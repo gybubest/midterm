@@ -1,11 +1,10 @@
 // See: https://sass-lang.com/
 
 body {
-  // background-color: #EEE;
   width: 100%;
   color: #fff;
   background-color: #1b1b1b;
-  font-family: Lora, Source Sans Pro;
+  font-family: Lato, Source Sans Pro;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,16 +12,17 @@ body {
   margin-top: 6%;
   margin-bottom: 6%;
 
-  header {
-    width: 80%;
+  h1.homepage-title {
+    width: 100%;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    // font-family: inherit;
-    color: #ffa31a;
+    font-family: inherit;
+    color: yellow;
+    text-shadow: 2px 2px 5px #9ecaed;
+    font-weight: bolder;
+    letter-spacing: 1.5px;
   }
-  //   color: #244751;
-  // }
 
   a {
     font-size: 2em;
@@ -36,6 +36,10 @@ body {
   @media only screen and (min-width: 420px) {
     body {
       margin-top: 150px;
+
+      h1.homepage-title {
+        font-size: 36px;
+      }
       h1 {
         font-size: 36px;
       }
@@ -43,10 +47,7 @@ body {
         font-size: 24px;
       }
     }
-
   }
-
-
 }
 
 
