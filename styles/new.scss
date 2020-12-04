@@ -73,17 +73,16 @@ body {
 
     button.newPollSubmitButton {
       width: 100%;
-      color: #C0C0C0;
+      color:  #1b1b1b;
       font-size: large;
-      letter-spacing: 1px;
       background-color: yellow;
       border: 0;
-      margin-top: 10px;
+      margin-top: 5%;
       font-weight: bold;
     }
 
     button:hover {
-      color: #1b1b1b;
+      box-shadow: 0 0 10px #9ecaed;
       background-color: yellow !important;
     }
 
