@@ -44,7 +44,7 @@ body {
         color: #fff;
         border: 2px solid #1b1b1b;
         border-radius: 25px;
-        box-shadow: 0 0 5px #9ecaed;
+        box-shadow: 0 0 5px #ffffe0;
         margin: 2em 0em;
         padding: 1em;
         flex-shrink: 1;
@@ -58,7 +58,7 @@ body {
           font-size: 1.5em;
         }
           &:hover {
-            box-shadow: 0 0 10px #9ecaed;
+            box-shadow: 0 0 10px #ffffe0;
 
             .option-title {
               color: white;
@@ -74,20 +74,25 @@ body {
     }
     input {
       margin: 1em;
-      box-shadow: 0 0 5px #9ecaed;
+      width: 40%;
+      box-shadow: 0 0 5px #ffffe0;
       background-color: #1b1b1b;
       &:hover {
-        box-shadow: 0 0 10px #9ecaed;
+        box-shadow: 0 0 10px #ffffe0;
       }
     }
     button {
-      background-color: #000000;
-        background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
-      box-shadow: 0 0 5px #9ecaed;
+      width: 200px;
+      color: #C0C0C0;
+      background-color: #1b1b1b;
+      border: 0;
+      margin-top: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 5px #ffffe0;
       &:hover {
-        box-shadow: 0 0 10px #9ecaed;
-        background-color: yellow;
-        color: black;
+        box-shadow: 0 0 10px #ffffe0;
+        color: #1b1b1b;
+      background-color: yellow !important;
       }
     }
   }
