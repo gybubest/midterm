@@ -8,8 +8,8 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 
 
     <!-- External JS -->
@@ -28,13 +28,12 @@
       <a class="new-poll-link" href="/new">Make a new poll</a>
     </header>
     <main class="linkspage-container">
-      <div class="links" id="item-to-copy">
-        <!-- <p >Question: <%= question %></p> -->
-        <p>Share with your friends: <a href="/<%= userLink %>">//localhost:8080/<%= userLink %></a></p>
-        <p>Check the results: <a href="/my/<%= adminLink %>">//localhost:8080/my/<%= adminLink %></a></p>
+      <div class="links">
+        <p>Check the results: <a href="/my/<%= adminLink %>"> localhost:8080/my/<%= adminLink %></a></p>
+        <p >Share with your friends: <a id="item-to-copy" href="/<%= userLink %>"> localhost:8080/<%= userLink %></a></p>
       </div>
       <div class="botton">
-      <button class="linkspage-button" onclick="copy('#item-to-copy')">Copy to clipboard</button>
+      <button class="linkspage-button" onclick="copy('#item-to-copy')">Copy and share</button>
       </div>
     </main>
   </body>

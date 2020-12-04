@@ -1,8 +1,8 @@
 
 body {
-  color: #fff;
+  color: #C0C0C0;
   background-color: #1b1b1b;
-  font-family: Lora, Source Sans Pro;
+  font-family: Lato, Source Sans Pro;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,6 @@ body {
 
   header {
     width: 80%;
-    // margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,13 +18,29 @@ body {
 
     h1 {
       font-size: 8vw;
-      color: #ffa31a;
+      font-weight: bolder;
+      letter-spacing: 1.5px;
+      color: yellow;
+      text-shadow: 2px 2px 5px #9ecaed;
+    }
+
+    h1:hover {
+      color: #ff1f8f;
     }
 
     a.new-poll-link {
       font-size: 6vw;
+      letter-spacing: 1px;
       color: #fff;
       background-color: #1b1b1b;
+    }
+    a.new-poll-link:hover {
+      color:  #9ecaed;
+      text-decoration: none;
+    }
+
+    a.new-poll-link:active {
+      transform: translateY(2px);
     }
   }
 
@@ -43,12 +58,13 @@ body {
       word-wrap: break-word;
 
       a {
-        color: #fff;
+        color: #C0C0C0;
         background-color: #1b1b1b;
       }
       a:hover {
         color: #fff;
         background-color: #1b1b1b;
+        text-decoration: none;
       }
     }
 
@@ -59,7 +75,7 @@ body {
     button.linkspage-button {
       width: 100%;
       background-color:  #1b1b1b;
-      color: #fff;
+      color: #C0C0C0;
       border: 0;
       border-radius: 5px;
       box-shadow: 0 0 10px #9ecaed;
@@ -67,33 +83,64 @@ body {
     }
 
     button.linkspage-button:hover {
-      box-shadow: 0 0 10px #ffca7c;
+      color: #fff;
+      box-shadow: 0 0 10px #ffffe0;
     }
+
+    button.linkspage-button:active {
+      outline:none !important;
+      transform: translateY(2px);
+    }
+
   }
 
 }
 
-@media only screen and (min-width: 420px) {
+// @media only screen and (min-width: 420px) {
+//   body {
+//     margin-top: 150px;
+
+//     h1.linkspage-title {
+//       font-size: 36px;
+//     }
+//     header a.new-poll-link {
+//       font-size: 24px;
+//     }
+
+//     main div.links {
+//       width: 390px;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//     }
+//     main div.botton {
+//       width: 390px;
+//     }
+
+//   }
+
+// }
+
+@media only screen and (min-width: 600px) {
   body {
     margin-top: 150px;
 
     h1.linkspage-title {
-      font-size: 36px;
+      font-size: 350%;
     }
     header a.new-poll-link {
-      font-size: 24px;
+      font-size: 250%;
     }
 
     main div.links {
-      width: 390px;
+      width: 500px;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
     main div.botton {
-      width: 390px;
+      width: 500px;
     }
-
   }
 
 }
+
