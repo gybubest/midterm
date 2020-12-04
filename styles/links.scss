@@ -18,12 +18,15 @@ body {
 
     h1 {
       font-size: 8vw;
-      font-weight: bold;
+      font-weight: bolder;
+      letter-spacing: 1.5px;
       color: yellow;
+      text-shadow: 2px 2px 5px #9ecaed;
     }
 
     a.new-poll-link {
       font-size: 6vw;
+      letter-spacing: 1px;
       color: #fff;
       background-color: #1b1b1b;
     }
@@ -77,7 +80,7 @@ body {
 
     button.linkspage-button:hover {
       color: #fff;
-      box-shadow: 0 0 10px #ffca7c;
+      box-shadow: 0 0 10px #ffffe0;
     }
 
     button.linkspage-button:active {

@@ -23,61 +23,78 @@
 
   </head>
   <body>
+    <header class="newpage-title">
+      <h1>Superfun Poll</h1>
+    </header>
     <form class="create-poll" method="POST" action="/" autocomplete="off">
-      <div class=form>
-        <label for="inputNewQuestion" class="col-sm-2 col-form-label">Question *</label>
-        <input type="text" class="form-control form-control-lg" name="inputNewQuestion">
+      <div class="element">
+       <div class="form">
+          <label for="inputNewQuestion" class="col-sm-2 col-form-label">Question *</label>
+          <input type="text" class="form-control form-control-lg" name="inputNewQuestion">
+        </div>
       </div>
-      <div class=form>
-        <label for="inputOpt1" class="col-sm-2 col-form-label">Option 1 *</label>
-        <input type="text" class="form-control" name="inputOpt1">
+      <div class="element">
+        <div class="form">
+          <label for="inputOpt1" class="col-sm-2 col-form-label">Option 1 *</label>
+          <input type="text" class="form-control" name="inputOpt1">
+        </div>
+        <div class="form">
+          <label for="inputOpt1Descript" class="col-sm-2 col-form-label">Description</label>
+          <input type="text" class="form-control form-control-sm" name="inputOpt1Descript">
+        </div>
       </div>
-      <div class=form>
-        <label for="inputOpt1Descript" class="col-sm-2 col-form-label">Description</label>
-        <input type="text" class="form-control form-control-sm" name="inputOpt1Descript">
+      <div class="element">
+        <div class="form">
+          <label for="inputOpt2" class="col-sm-2 col-form-label">Option 2 *</label>
+          <input type="text" class="form-control" name="inputOpt2">
+        </div>
+        <div class="form">
+          <label for="inputOpt2Descript" class="col-sm-2 col-form-label">Description</label>
+          <input type="text" class="form-control form-control-sm" name="inputOpt2Descript">
+        </div>
       </div>
-      <div class=form>
-        <label for="inputOpt2" class="col-sm-2 col-form-label">Option 2 *</label>
-        <input type="text" class="form-control" name="inputOpt2">
+      <div class="element">
+        <div class="form">
+          <label for="inputOpt3" class="col-sm-2 col-form-label">Option 3</label>
+          <input type="text" class="form-control" name="inputOpt3">
+        </div>
+        <div class="form">
+          <label for="inputOpt3Descript" class="col-sm-2 col-form-label">Description</label>
+          <input type="text" class="form-control form-control-sm" name="inputOpt3Descript">
+        </div>
       </div>
-      <div class=form>
-        <label for="inputOpt2Descript" class="col-sm-2 col-form-label">Description</label>
-        <input type="text" class="form-control form-control-sm" name="inputOpt2Descript">
+      <div class="element">
+        <div class="form">
+          <label for="inputOpt4" class="col-sm-2 col-form-label">Option 4</label>
+          <input type="text" class="form-control" name="inputOpt4">
+        </div>
+        <div class="form">
+          <label for="inputOpt4Descript" class="col-sm-2 col-form-label">Description</label>
+          <input type="text" class="form-control form-control-sm" name="inputOpt4Descript">
+        </div>
       </div>
-      <div class=form>
-        <label for="inputOpt3" class="col-sm-2 col-form-label">Option 3</label>
-        <input type="text" class="form-control" name="inputOpt3">
+      <div class="element">
+        <div class="form">
+          <label for="inputOpt5" class="col-sm-2 col-form-label">Option 5</label>
+          <input type="text" class="form-control" name="inputOpt5">
+        </div>
+        <div class="form">
+          <label for="inputOptio52Descript" class="col-sm-2 col-form-label">Description</label>
+          <input type="text" class="form-control form-control-sm" name="inputOpt5Descript">
+        </div>
       </div>
-      <div class=form>
-        <label for="inputOpt3Descript" class="col-sm-2 col-form-label">Description</label>
-        <input type="text" class="form-control form-control-sm" name="inputOpt3Descript">
-      </div>
-      <div class=form>
-        <label for="inputOpt4" class="col-sm-2 col-form-label">Option 4</label>
-        <input type="text" class="form-control" name="inputOpt4">
-      </div>
-      <div class=form>
-        <label for="inputOpt4Descript" class="col-sm-2 col-form-label">Description</label>
-        <input type="text" class="form-control form-control-sm" name="inputOpt4Descript">
-      </div>
-      <div class=form>
-        <label for="inputOpt5" class="col-sm-2 col-form-label">Option 5</label>
-        <input type="text" class="form-control" name="inputOpt5">
-      </div>
-      <div class=form>
-        <label for="inputOptio52Descript" class="col-sm-2 col-form-label">Description</label>
-        <input type="text" class="form-control form-control-sm" name="inputOpt5Descript">
-      </div>
-      <div class=form>
-        <input class="form-check-input" type="checkbox" value="anonymous" name="anonymousCheck">
-        <label class="form-check-label" for="anonymousCheck">Anonymous poll?</label>
-      </div>
-      <div class="form emailValidation" autocomplete="on">
-        <label for="inputEmail" class="col-sm-2 col-form-label">Enter your email *</label>
-        <input type="email" class="form-control form-control-lg" id="inputEmail" name="inputEmail">
-      </div>
-      <div class="form-btn">
-        <button type="submit" class="btn btn-primary newPollSubmitButton" data-toggle="tooltip" disabled="disabled">Submit</button>
+      <div class="element">
+        <div class="form">
+          <input class="form-check-input" type="checkbox" value="anonymous" name="anonymousCheck">
+          <label class="form-check-label" for="anonymousCheck">Anonymous poll?</label>
+        </div>
+        <div class="form emailValidation" autocomplete="on">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Enter your email *</label>
+          <input type="email" class="form-control form-control-lg" id="inputEmail" name="inputEmail">
+        </div>
+        <div class="form-btn">
+          <button type="submit" class="btn btn-primary newPollSubmitButton" data-toggle="tooltip" disabled="disabled">Submit</button>
+        </div>
       </div>
     </form>
   </body>
