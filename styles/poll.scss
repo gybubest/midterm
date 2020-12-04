@@ -1,45 +1,55 @@
 body {
-  background-color: #2b3020;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-dot.png");
+  background-color: #1b1b1b;
+
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   display: flex;
   flex-direction: column;
   align-items: center;
   color: silver;
+  font-family: Lato, Source Sans Pro;
 
   header {
     display: flex;
     flex-flow: column;
     align-items: center;
-    color: white;
-  }
-  h1 {
-
-    font-family: 'Luckiest Guy', cursive;
-  }
-  h2 {
-    font-family: 'Kalam', cursive;
-
+    h1 {
+        color: white;
+        font-family: 'Lato', sans-serif;
+    }
+    h2 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 40px;
+      color: yellow;
+    }
   }
 
 
   main {
     padding: 0.25em;
-    font-family: 'Kalam', cursive;
-    width: 80%;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 95%;
 
     height: 90%;
     display: flex;
     flex-flow: column;
     align-items: center;
     ol {
-      width: 90%;
-      li {
+      width: 80%;
+
+      .option {
         list-style-position: inside;
-        padding: 20px;
-        border: 5px groove grey;
-        margin: 1em;
-        flex-grow: 1;
-        box-shadow: 2px 3px 1px 1px black;
+        width: 100%;
+        background-color: #000000;
+        background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+        color: #fff;
+        border: 2px solid #1b1b1b;
+        border-radius: 25px;
+        box-shadow: 0 0 5px #9ecaed;
+        margin: 2em 0em;
+        padding: 1em;
+        flex-shrink: 1;
+        text-align: center;
+
 
 
 
@@ -48,7 +58,7 @@ body {
           font-size: 1.5em;
         }
           &:hover {
-            height: 200%;
+            box-shadow: 0 0 10px #9ecaed;
 
             .option-title {
               color: white;
@@ -64,10 +74,21 @@ body {
     }
     input {
       margin: 1em;
-
+      box-shadow: 0 0 5px #9ecaed;
+      background-color: #1b1b1b;
+      &:hover {
+        box-shadow: 0 0 10px #9ecaed;
+      }
     }
     button {
-      box-shadow: 1px 2px 1px 1px lightgreen;
+      background-color: #000000;
+        background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+      box-shadow: 0 0 5px #9ecaed;
+      &:hover {
+        box-shadow: 0 0 10px #9ecaed;
+        background-color: yellow;
+        color: black;
+      }
     }
   }
 
