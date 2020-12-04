@@ -4,6 +4,7 @@ body {
   color: #C0C0C0;
   background-color: #1b1b1b;
   font-family: Lato, Source Sans Pro;
+  font-size: medium;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,6 +74,8 @@ body {
     button.newPollSubmitButton {
       width: 100%;
       color: #C0C0C0;
+      font-size: large;
+      letter-spacing: 1px;
       background-color: yellow;
       border: 0;
       margin-top: 10px;

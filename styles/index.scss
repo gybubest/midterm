@@ -58,26 +58,14 @@ body {
   }
 }
 
-// @media only screen and (min-width: 420px) {
-//   body {
-//     margin-top: 150px;
-//     h1 {
-//       font-size: 36px;
-//     }
-//     a {
-//       font-size: 24px;
-//     }
-//   }
-
-// }
 @media only screen and (min-width: 600px) {
   body {
     margin-top: 150px;
     header > h1 {
-      font-size: 400%;
+      font-size: 350%;
     }
     a {
-      font-size: 300%;
+      font-size: 250%;
     }
   }
 

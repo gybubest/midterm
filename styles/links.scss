@@ -96,27 +96,51 @@ body {
 
 }
 
-@media only screen and (min-width: 420px) {
+// @media only screen and (min-width: 420px) {
+//   body {
+//     margin-top: 150px;
+
+//     h1.linkspage-title {
+//       font-size: 36px;
+//     }
+//     header a.new-poll-link {
+//       font-size: 24px;
+//     }
+
+//     main div.links {
+//       width: 390px;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//     }
+//     main div.botton {
+//       width: 390px;
+//     }
+
+//   }
+
+// }
+
+@media only screen and (min-width: 600px) {
   body {
     margin-top: 150px;
 
     h1.linkspage-title {
-      font-size: 36px;
+      font-size: 350%;
     }
     header a.new-poll-link {
-      font-size: 24px;
+      font-size: 250%;
     }
 
     main div.links {
-      width: 390px;
+      width: 500px;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
     main div.botton {
-      width: 390px;
+      width: 500px;
     }
-
   }
 
 }
+
