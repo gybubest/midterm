@@ -5,14 +5,33 @@ body {
   background-color: #1b1b1b;
   font-family: Lato, Source Sans Pro;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 6%;
   margin-bottom: 6%;
 
+  header {
+    h1 {
+    color: yellow;
+    font-size: 8vw;
+    font-weight: bolder;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 5px #9ecaed;
+    }
+
+    h1:hover {
+      color: #ff1f8f;
+    }
+  }
   form {
     width: 80%;
-    line-height: 4;
+    line-height: 3;
+
+    div.element {
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
   }
 
   label.col-form-label {
@@ -35,7 +54,7 @@ body {
   }
 
   input.form-control:hover {
-    box-shadow: 0 0 10px #ffca7c;
+    box-shadow: 0 0 10px #ffffe0;
   }
 
   input:-webkit-autofill,
@@ -54,7 +73,7 @@ body {
     button.newPollSubmitButton {
       width: 100%;
       color: #C0C0C0;
-      background-color: #1b1b1b;
+      background-color: yellow;
       border: 0;
       margin-top: 10px;
       font-weight: bold;
@@ -76,4 +95,12 @@ body {
 
 
 
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    header > h1 {
+      font-size: 60px;
+    }
+  }
 }

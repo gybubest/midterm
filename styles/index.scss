@@ -14,15 +14,23 @@ body {
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      font-size: 8vw;
+      font-weight: bolder;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px 5px #9ecaed;
+    }
+
+    h1:hover {
+      color: #ff1f8f;
+    }
   }
 
-  h1 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 8vw;
-    font-weight: bold;
-  }
+
 
   main {
     width: 80%;
@@ -31,6 +39,7 @@ body {
   }
   a {
     font-size: 6vw;
+    letter-spacing: 1px;
     width: 100%;
     color: #fff;
     background-color: #1b1b1b;
@@ -49,14 +58,26 @@ body {
   }
 }
 
-@media only screen and (min-width: 420px) {
+// @media only screen and (min-width: 420px) {
+//   body {
+//     margin-top: 150px;
+//     h1 {
+//       font-size: 36px;
+//     }
+//     a {
+//       font-size: 24px;
+//     }
+//   }
+
+// }
+@media only screen and (min-width: 600px) {
   body {
     margin-top: 150px;
-    h1 {
-      font-size: 36px;
+    header > h1 {
+      font-size: 400%;
     }
     a {
-      font-size: 24px;
+      font-size: 300%;
     }
   }
 
